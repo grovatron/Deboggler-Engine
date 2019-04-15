@@ -1,0 +1,47 @@
+package com.grovatron.deboggler;
+
+import java.util.List;
+
+/**
+ * The <code>Deboggler</code> class comprises the heart of the Deboggler engine.
+ * It has one method, getWordList, that returns a <code>List<Word></code> of 
+ * unique words that can be constructed from the <code>Letter</code> grid.
+ * 
+ * The components that make up the dependencies of the <code>Deboggler</code> are
+ * customizable; they need only implement the <code>Dictionary</code>,
+ * <code>WordPointCalculator</code>, and <code>WordSet</code> interfaces, respectively.
+ * 
+ * @author Grover Sundstrom (grover.a.sundstrom@gmail.com)
+ * @version 0.0.1 04/15/2019
+ *
+ */
+public class Deboggler {
+
+	
+	private final Dictionary dictionary;
+	private final WordPointCalculator calculator;
+	private final WordSet wordSet;
+	
+	/**
+	 * Creates an instance of <code>Debogger</code>.
+	 * @param dictionary 
+	 * @param calculator
+	 * @param wordSet
+	 */
+	public Deboggler(Dictionary dictionary, WordPointCalculator calculator, WordSet wordSet) {
+		this.dictionary = dictionary;
+		this.calculator = calculator;
+		this.wordSet = wordSet;
+	}
+	
+	/**
+	 * Finds all the unique words that can be constructed from the <code>Letter</code> objects
+	 * that make up the <code>letterGrid</code>.
+	 * @param letterGrid
+	 * @return A list of <code>Word</code> objects that represent the set of unique words
+	 * that can be constructed from the <code>letterGrid</code>
+	 */
+	public List<Word> getWordList(Letter[][] letterGrid) {
+		return null;
+	}
+}
