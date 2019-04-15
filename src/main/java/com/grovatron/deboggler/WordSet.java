@@ -1,5 +1,7 @@
 package com.grovatron.deboggler;
 
+import java.util.List;
+
 /**
  * Responsible for collecting <code>Word</code> objects found during the
  * search process of <code>Deboggler</code>'s <code>getWordList</code>
@@ -18,4 +20,11 @@ public interface WordSet {
 	 * successfully added.
 	 */
 	boolean addWord(Word word);
+	
+	/**
+	 * Get the complete set of unique <code>Word</code> objects constructed
+	 * constructed from the <code>Letter</code> grid.
+	 * @return List of unique <code>Word</code> objects.
+	 */
+	List<Word> getWords();
 }
