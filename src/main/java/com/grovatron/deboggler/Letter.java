@@ -10,9 +10,9 @@ package com.grovatron.deboggler;
  */
 public class Letter {
 
-	private String letter;
-	private int value;
-	private Modifier modifier;
+	private final String letter;
+	private final int value;
+	private final Modifier modifier;
 	
 	/**
 	 * Creates an instance of <code>Letter</code> with the letter, value,
@@ -44,5 +44,29 @@ public class Letter {
 	 */
 	public Letter(String letter) {
 		this(letter, 0, null);
+	}
+
+	/**
+	 * Returns <code>Letter</code>'s letter value.
+	 * @return letter
+	 */
+	public String getLetter() {
+		return letter;
+	}
+
+	/**
+	 * Returns <code>Letter</code>'s point value.
+	 * @return point value
+	 */
+	public int getValue() {
+		return value;
+	}
+
+	/**
+	 * Returns <code>Letter</code>'s <code>Modifier</code>.
+	 * @return point modifier.
+	 */
+	public Modifier getModifier() {
+		return modifier;
 	}
 }
