@@ -1,5 +1,48 @@
 package com.grovatron.deboggler;
 
+/**
+ * Represents a letter in a Boggle-style grid of letters.
+ * <code>Letter</code> objects may optionally have a point value and <code>Modifier</code>.
+ * 
+ * @author Grover Sundstrom	(grover.a.sundstrom@gmail.com)
+ * @version 0.0.1 04/15/2019
+ *
+ */
 public class Letter {
 
+	private String letter;
+	private int value;
+	private Modifier modifier;
+	
+	/**
+	 * Creates an instance of <code>Letter</code> with the letter, value,
+	 * and <code>Modifier</code> supplied by the client.
+	 * @param letter
+	 * @param value
+	 * @param modifier
+	 */
+	public Letter(String letter, int value, Modifier modifier) {
+		this.letter = letter;
+		this.value = value;
+		this.modifier = modifier;
+	}
+	
+	/**
+	 * Creates an instance of <code>Letter</code> with the letter and
+	 * value supplied by the client.
+	 * @param letter
+	 * @param value
+	 */
+	public Letter(String letter, int value) {
+		this(letter, value, null);
+	}
+	
+	/**
+	 * Creates an instance of <code>Letter</code> with only the letter
+	 * supplied by the client.
+	 * @param letter
+	 */
+	public Letter(String letter) {
+		this(letter, 0, null);
+	}
 }
