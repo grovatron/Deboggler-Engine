@@ -23,5 +23,14 @@ class LetterTest {
 		assertThrows(IllegalArgumentException.class, () -> new Letter(""),
 				"Letter does not take empty Strings, should throw IllegalArgumentException");
 	}
+	
+	/**
+	 * Attempt to construct letter with whitespace String, should throw exception.
+	 */
+	@Test
+	void testConstructor3() {
+		assertThrows(IllegalArgumentException.class, () -> new Letter(" "),
+				"Letter does not take whitespace Strings, should throw IllegalArgumentException");
+	}
 
 }
