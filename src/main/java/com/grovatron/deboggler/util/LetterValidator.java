@@ -19,19 +19,19 @@ public class LetterValidator {
 		return input != null &&
 				!input.isEmpty() &&
 				!input.isBlank() &&
-				!containsDigits(input);
+				!containsNonAlphabeticChar(input);
 	}
-
-	private static boolean containsDigits(String input) {
-		if (input == null) {
-			return false;
-		}
+	
+	private static boolean containsNonAlphabeticChar(String input) {
+		if (input == null) return false;
+		
 		char[] characters = input.toCharArray();
 		for (char character : characters) {
-			if (Character.isDigit(character)) {
+			if (!Character.isAlphabetic(character)) {
 				return true;
 			}
 		}
+		
 		return false;
 	}
 }
