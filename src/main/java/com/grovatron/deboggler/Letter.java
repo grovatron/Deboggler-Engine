@@ -1,5 +1,7 @@
 package com.grovatron.deboggler;
 
+import com.grovatron.deboggler.util.LetterValidator;
+
 /**
  * Represents a letter in a Boggle-style grid of letters.
  * <code>Letter</code> objects may optionally have a point value and <code>Modifier</code>.
@@ -22,7 +24,7 @@ public class Letter {
 	 * @param modifier
 	 */
 	public Letter(String letter, int value, ValueModifier modifier) {
-		if (letter == null || letter.isEmpty() || letter.isBlank()) {
+		if (!LetterValidator.validateInput(letter)) {
 			throw new IllegalArgumentException();
 		}
 		this.letter = letter;
