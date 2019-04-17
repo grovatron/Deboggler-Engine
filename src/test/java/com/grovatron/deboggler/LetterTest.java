@@ -14,5 +14,14 @@ class LetterTest {
 		assertThrows(IllegalArgumentException.class, () -> new Letter(null),
 				"Letter does not take null Strings, should throw IllegalArgumentException.");
 	}
+	
+	/**
+	 * Attempt to construct Letter with empty String, should throw exception.
+	 */
+	@Test
+	void testConstructor2() {
+		assertThrows(IllegalArgumentException.class, () -> new Letter(""),
+				"Letter does not take empty Strings, should throw IllegalArgumentException");
+	}
 
 }
