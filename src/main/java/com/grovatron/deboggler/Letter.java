@@ -24,7 +24,7 @@ public class Letter {
 	 * @param modifier
 	 */
 	public Letter(String letter, int value, ValueModifier modifier) {
-		if (!LetterValidator.validateInput(letter)) {
+		if (!LetterValidator.validateStringInput(letter)) {
 			throw new IllegalArgumentException();
 		}
 		this.letter = letter;
