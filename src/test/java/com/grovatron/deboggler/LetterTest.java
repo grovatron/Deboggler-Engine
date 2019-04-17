@@ -3,6 +3,8 @@ package com.grovatron.deboggler;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class LetterTest {
 
@@ -67,6 +69,17 @@ class LetterTest {
 	void testConstructor7() {
 		assertThrows(IllegalArgumentException.class, () -> new Letter("8"),
 				"Letter does not take digit Strings, should throw IllegalArgumentException");
+	}
+	
+	/**
+	 * Attempt to construct letter with non-alphanumeric String, should throw exception.
+	 */
+	@ParameterizedTest
+	@ValueSource(strings = {".", ",", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "{", "}", "[", "]", "-",
+			"_", "=", "+", "|", "\\", ";", ":", "\"", "'", ">", "<", "?", "/"})
+	void testConstructor8(String symbol) {
+		assertThrows(IllegalArgumentException.class, () -> new Letter(symbol),
+				"Letter does not take symbol Strings, should throw IllegalArgumentException");
 	}
 
 }
