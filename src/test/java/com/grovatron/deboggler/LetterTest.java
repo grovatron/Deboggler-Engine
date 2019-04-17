@@ -56,5 +56,14 @@ class LetterTest {
 		assertThrows(IllegalArgumentException.class, () -> new Letter(symbol),
 				"Letter does not take symbol Strings, should throw IllegalArgumentException");
 	}
+	
+	/**
+	 * Attempt to construct letter with two character, non-"QU" String, should throw exception.
+	 */
+	@Test
+	void testConstructor6() {
+		assertThrows(IllegalArgumentException.class, () -> new Letter("AB"),
+				"Letter does not take two char Strings (except for \"QU\"), should throw exception.");
+	}
 
 }
