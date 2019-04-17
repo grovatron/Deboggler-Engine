@@ -59,5 +59,14 @@ class LetterTest {
 		assertThrows(IllegalArgumentException.class, () -> new Letter("\r"),
 				"Letter does not take carriage return character Strings, should throw IllegalArgumentException");
 	}
+	
+	/**
+	 * Attempt to construct letter with digits, should throw exception.
+	 */
+	@Test
+	void testConstructor7() {
+		assertThrows(IllegalArgumentException.class, () -> new Letter("8"),
+				"Letter does not take digit Strings, should throw IllegalArgumentException");
+	}
 
 }
