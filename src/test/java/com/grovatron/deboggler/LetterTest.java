@@ -65,9 +65,10 @@ class LetterTest {
 	/**
 	 * Attempt to construct letter with digits, should throw exception.
 	 */
-	@Test
-	void testConstructor7() {
-		assertThrows(IllegalArgumentException.class, () -> new Letter("8"),
+	@ParameterizedTest
+	@ValueSource(strings = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"})
+	void testConstructor7(String digit) {
+		assertThrows(IllegalArgumentException.class, () -> new Letter(digit),
 				"Letter does not take digit Strings, should throw IllegalArgumentException");
 	}
 	
