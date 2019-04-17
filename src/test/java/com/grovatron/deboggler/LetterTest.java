@@ -6,9 +6,13 @@ import org.junit.jupiter.api.Test;
 
 class LetterTest {
 
+	/**
+	 * Attempt to construct Letter with null String, should throw exception.
+	 */
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void testConstructor1() {
+		assertThrows(IllegalArgumentException.class, () -> new Letter(null),
+				"Letter does not take null Strings, should throw IllegalArgumentException.");
 	}
 
 }
