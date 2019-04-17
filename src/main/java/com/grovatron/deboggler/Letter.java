@@ -22,6 +22,9 @@ public class Letter {
 	 * @param modifier
 	 */
 	public Letter(String letter, int value, ValueModifier modifier) {
+		if (letter == null) {
+			throw new IllegalArgumentException();
+		}
 		this.letter = letter;
 		this.value = value;
 		this.modifier = modifier;
