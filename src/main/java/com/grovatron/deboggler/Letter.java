@@ -22,7 +22,7 @@ public class Letter {
 	 * @param modifier
 	 */
 	public Letter(String letter, int value, ValueModifier modifier) {
-		if (letter == null) {
+		if (letter == null || letter.isEmpty()) {
 			throw new IllegalArgumentException();
 		}
 		this.letter = letter;
