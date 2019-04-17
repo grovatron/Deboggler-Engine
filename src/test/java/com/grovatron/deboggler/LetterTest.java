@@ -65,5 +65,15 @@ class LetterTest {
 		assertThrows(IllegalArgumentException.class, () -> new Letter("AB"),
 				"Letter does not take two char Strings (except for \"QU\"), should throw exception.");
 	}
+	
+	/**
+	 * Construct letter with string "QU", should not throw exception.
+	 */
+	@Test
+	void testConstructor7() {
+		Letter letter = new Letter("QU");
+		String expected = "QU";
+		assertEquals(expected, letter.getLetter(), "Should return true");
+	}
 
 }
