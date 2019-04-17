@@ -12,16 +12,16 @@ public class Letter {
 
 	private final String letter;
 	private final int value;
-	private final Modifier modifier;
+	private final ValueModifier modifier;
 	
 	/**
 	 * Creates an instance of <code>Letter</code> with the letter, value,
-	 * and <code>Modifier</code> supplied by the client.
+	 * and <code>ValueModifier</code> supplied by the client.
 	 * @param letter
 	 * @param value
 	 * @param modifier
 	 */
-	public Letter(String letter, int value, Modifier modifier) {
+	public Letter(String letter, int value, ValueModifier modifier) {
 		this.letter = letter;
 		this.value = value;
 		this.modifier = modifier;
@@ -66,7 +66,7 @@ public class Letter {
 	 * Returns <code>Letter</code>'s <code>Modifier</code>.
 	 * @return point modifier.
 	 */
-	public Modifier getModifier() {
+	public ValueModifier getModifier() {
 		return modifier;
 	}
 }
