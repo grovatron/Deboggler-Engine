@@ -19,7 +19,8 @@ public class LetterValidator {
 		return input != null &&
 				!input.isEmpty() &&
 				!input.isBlank() &&
-				!containsNonAlphabeticChar(input);
+				!containsNonAlphabeticChar(input) &&
+				input.length() == 1;
 	}
 	
 	private static boolean containsNonAlphabeticChar(String input) {
