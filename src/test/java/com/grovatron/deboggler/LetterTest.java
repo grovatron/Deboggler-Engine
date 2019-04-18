@@ -75,5 +75,15 @@ class LetterTest {
 		String expected = "QU";
 		assertEquals(expected, letter.getLetter(), "Should return true");
 	}
+	
+	/**
+	 * Attempt to construct letter with lower case character, should throw exception.
+	 */
+	@ParameterizedTest
+	@ValueSource(strings= {"a", "qu"})
+	void testConstructor8(String letter) {
+		assertThrows(IllegalArgumentException.class, () -> new Letter(letter),
+				"Letter does not take lower case Strings, should throw exception.");
+	}
 
 }
