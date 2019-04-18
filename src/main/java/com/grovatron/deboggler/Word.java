@@ -2,6 +2,8 @@ package com.grovatron.deboggler;
 
 import java.util.List;
 
+import com.grovatron.deboggler.util.WordValidator;
+
 /**
  * Represents a word contstructed from the <code>Letter</code> objects of 2d matrix of <code>Letter</code>s.
  * Each <code>Word</code> has a String value, point value, location in the 2d matrix of <code>Letter</code>
@@ -28,8 +30,10 @@ public class Word {
 	 * calculating the point value.
 	 */
 	public Word(String word, int value, List<Integer> location, List<ValueModifier> modifiers) {
-		if (word == null || word.isBlank() || location == null || location.isEmpty() ||
-				location.size() != word.length()) {
+		if (
+				!WordValidator.validateWordStringInput(word) ||
+				!WordValidator.validateLocationListInput(location, word)
+				) {
 			throw new IllegalArgumentException();
 		}
 		this.word = word;
