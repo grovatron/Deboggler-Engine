@@ -22,6 +22,12 @@ public class WordValidator {
 		return input != null && !input.isBlank();
 	}
 
+	/**
+	 * Validates the list of ints, <code>location</code> for the <code>Word</code> constructor.
+	 * @param listInput the <code>location</code> list to be validated.
+	 * @param stringInput the <code>word</code> argument for <code>Word</code>'s constructor.
+	 * @return Boolean value representing whether the input was vaild.
+	 */
 	public static boolean validateLocationListInput(List<Integer> listInput, String stringInput) {
 		return listInput != null &&
 				!listInput.isEmpty() &&
