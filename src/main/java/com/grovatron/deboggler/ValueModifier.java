@@ -19,6 +19,9 @@ public class ValueModifier {
 	 * @param multiplier An integer amount to multiply the value by.
 	 */
 	public ValueModifier(Modifier modifier, int multiplier) {
+		if (modifier == null) {
+			throw new IllegalArgumentException();
+		}
 		this.modifier = modifier;
 		this.multiplier = multiplier;
 	}
