@@ -113,5 +113,18 @@ class WordTest {
 		assertThrows(IllegalArgumentException.class, () -> new Word(word, value, location, modifiers),
 				"Word does not take location list with repeat locations, should throw IllegalArgumentException");
 	}
+	
+	/**
+	 * Attempt to construct Word with location list that contains null value, should throw exception.
+	 */
+	@Test
+	void testConstructor8() {
+		String word = "APE";
+		int value = 0;
+		List<Integer> location = List.of(1, 2, null);
+		List<ValueModifier> modifiers = List.of();
+		assertThrows(IllegalArgumentException.class, () -> new Word(word, value, location, modifiers),
+				"Word does not take location list with repeat locations, should throw IllegalArgumentException");
+	}
 
 }
