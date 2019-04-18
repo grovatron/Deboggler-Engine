@@ -20,7 +20,8 @@ public class LetterValidator {
 				!input.isEmpty() &&
 				!input.isBlank() &&
 				!containsNonAlphabeticChar(input) &&
-				(input.length() == 1 || input.equalsIgnoreCase("QU"));
+				(input.length() == 1 || input.equalsIgnoreCase("QU")) &&
+				(!input.toLowerCase().equals(input));
 	}
 	
 	private static boolean containsNonAlphabeticChar(String input) {
