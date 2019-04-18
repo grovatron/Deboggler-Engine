@@ -28,7 +28,8 @@ public class Word {
 	 * calculating the point value.
 	 */
 	public Word(String word, int value, List<Integer> location, List<ValueModifier> modifiers) {
-		if (word == null || word.isBlank() || location == null || location.isEmpty()) {
+		if (word == null || word.isBlank() || location == null || location.isEmpty() ||
+				location.size() != word.length()) {
 			throw new IllegalArgumentException();
 		}
 		this.word = word;
