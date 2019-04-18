@@ -19,9 +19,9 @@ public class Letter {
 	/**
 	 * Creates an instance of <code>Letter</code> with the letter, value,
 	 * and <code>ValueModifier</code> supplied by the client.
-	 * @param letter
-	 * @param value
-	 * @param modifier
+	 * @param letter A String representation of the <code>Letter</code>
+	 * @param value  An int value representing the point value of the <code>Letter</code>
+	 * @param modifier A <code>Modifier</code> object associated with the <code>Letter</code>
 	 */
 	public Letter(String letter, int value, ValueModifier modifier) {
 		if (!LetterValidator.validateStringInput(letter)) {
@@ -35,8 +35,8 @@ public class Letter {
 	/**
 	 * Creates an instance of <code>Letter</code> with the letter and
 	 * value supplied by the client.
-	 * @param letter
-	 * @param value
+	 * @param letter A String representation of the <code>Letter</code>
+	 * @param value  An int value representing the point value of the <code>Letter</code>
 	 */
 	public Letter(String letter, int value) {
 		this(letter, value, null);
@@ -45,7 +45,7 @@ public class Letter {
 	/**
 	 * Creates an instance of <code>Letter</code> with only the letter
 	 * supplied by the client.
-	 * @param letter
+	 * @param letter A String representation of the <code>Letter</code>
 	 */
 	public Letter(String letter) {
 		this(letter, 0, null);
@@ -53,7 +53,7 @@ public class Letter {
 
 	/**
 	 * Returns <code>Letter</code>'s letter value.
-	 * @return letter
+	 * @return letter A String representation of the <code>Letter</code>
 	 */
 	public String getLetter() {
 		return letter;
@@ -61,7 +61,7 @@ public class Letter {
 
 	/**
 	 * Returns <code>Letter</code>'s point value.
-	 * @return point value
+	 * @return value The point value of the <code>Letter</code>
 	 */
 	public int getValue() {
 		return value;
@@ -69,7 +69,7 @@ public class Letter {
 
 	/**
 	 * Returns <code>Letter</code>'s <code>Modifier</code>.
-	 * @return point modifier.
+	 * @return modifier The <code>Modifier</code> object associated with the <code>Letter</code> object
 	 */
 	public ValueModifier getModifier() {
 		return modifier;

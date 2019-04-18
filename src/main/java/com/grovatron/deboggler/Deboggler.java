@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * The <code>Deboggler</code> class comprises the heart of the Deboggler engine.
- * It has one method, getWordList, that returns a <code>List<Word></code> of 
+ * It has one method, getWordList, that returns a <code>Word</code> list of 
  * unique words that can be constructed from the <code>Letter</code> grid.
  * 
  * The components that make up the dependencies of the <code>Deboggler</code> are
@@ -24,9 +24,9 @@ public class Deboggler {
 	
 	/**
 	 * Creates an instance of <code>Debogger</code>.
-	 * @param dictionary 
-	 * @param calculator
-	 * @param wordSet
+	 * @param dictionary Object that implements the <code>Dictionary</code> interface.
+	 * @param calculator Object that implements the <code>WordPointCalculator</code> interface.
+	 * @param wordSet Object that implements the <code>WordSet</code> interface.
 	 */
 	public Deboggler(Dictionary dictionary, WordPointCalculator calculator, WordSet wordSet) {
 		this.dictionary = dictionary;
@@ -37,7 +37,7 @@ public class Deboggler {
 	/**
 	 * Finds all the unique words that can be constructed from the <code>Letter</code> objects
 	 * that make up the <code>letterGrid</code>.
-	 * @param letterGrid
+	 * @param letterGrid A 2d array of <code>Letter</code> objects
 	 * @return A list of <code>Word</code> objects that represent the set of unique words
 	 * that can be constructed from the <code>letterGrid</code>
 	 */

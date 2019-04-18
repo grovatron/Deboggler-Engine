@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Responsible for collecting <code>Word</code> objects found during the
  * search process of <code>Deboggler</code>'s <code>getWordList</code>
- * method, and returning a <code>List<Word></code> at the end of the method.
+ * method, and returning a <code>List</code> of <code>Word</code> objects at the end of the method.
  * 
  * @author Grover Sundstrom (grover.a.sundstrom@gmail.com)
  * @version 0.0.1 04/19/2019

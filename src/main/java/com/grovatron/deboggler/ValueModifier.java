@@ -16,7 +16,7 @@ public class ValueModifier {
 	 * Creates a <code>ValueModifier</code> instance.
 	 * @param modifier Enum that signals whether to modify <code>Letter</code>
 	 * or <code>Word</code> value.
-	 * @param mutliplier An integer amount to multiply the value by.
+	 * @param multiplier An integer amount to multiply the value by.
 	 */
 	public ValueModifier(Modifier modifier, int multiplier) {
 		this.modifier = modifier;
