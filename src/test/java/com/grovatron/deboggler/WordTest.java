@@ -130,5 +130,18 @@ class WordTest {
 		assertThrows(IllegalArgumentException.class, () -> new Word(word, value, location, modifiers),
 				"Word does not take location list that contains a null value, should throw IllegalArgumentException");
 	}
+	
+	/**
+	 * Attempt to construct Word with null modifer list, should throw exception.
+	 */
+	@Test
+	void testConstructor9() {
+		String word = "APE";
+		int value = 0;
+		List<Integer> location = List.of(1, 2, 3);
+		List<ValueModifier> modifiers = null;
+		assertThrows(IllegalArgumentException.class, () -> new Word(word, value, location, modifiers),
+				"Word does not take null modifier list, should throw IllegalArgumentException");
+	}
 
 }
