@@ -6,6 +6,9 @@ public class OriginalPointCalculator implements WordPointCalculator {
 
 	@Override
 	public int calculatePoints(List<Letter> letters) {
+		if (letters == null) {
+			throw new IllegalArgumentException();
+		}
 		// TODO Auto-generated method stub
 		return 0;
 	}
