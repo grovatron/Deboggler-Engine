@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.grovatron.deboggler.ValueModifier;
+
 /**
  * Responsible for validating constructor arguments for the <code>Word</code> class.
  * 
@@ -53,5 +55,9 @@ public class WordValidator {
 			}
 		}
 		return false;
+	}
+
+	public static boolean validateModifierListInput(List<ValueModifier> modifiers) {
+		return modifiers != null;
 	}
 }

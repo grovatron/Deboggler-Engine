@@ -32,7 +32,8 @@ public class Word {
 	public Word(String word, int value, List<Integer> location, List<ValueModifier> modifiers) {
 		if (
 				!WordValidator.validateWordStringInput(word) ||
-				!WordValidator.validateLocationListInput(location, word)
+				!WordValidator.validateLocationListInput(location, word) ||
+				!WordValidator.validateModifierListInput(modifiers)
 				) {
 			throw new IllegalArgumentException();
 		}
