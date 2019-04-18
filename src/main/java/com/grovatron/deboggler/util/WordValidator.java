@@ -58,6 +58,7 @@ public class WordValidator {
 	}
 
 	public static boolean validateModifierListInput(List<ValueModifier> modifiers) {
-		return modifiers != null;
+		return modifiers != null &&
+				!modifiers.contains(null);
 	}
 }
