@@ -2,6 +2,7 @@ package com.grovatron.deboggler;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
@@ -121,10 +122,13 @@ class WordTest {
 	void testConstructor8() {
 		String word = "APE";
 		int value = 0;
-		List<Integer> location = List.of(1, 2, null);
+		List<Integer> location = new ArrayList<>();
+		location.add(1);
+		location.add(2);
+		location.add(null);
 		List<ValueModifier> modifiers = List.of();
 		assertThrows(IllegalArgumentException.class, () -> new Word(word, value, location, modifiers),
-				"Word does not take location list with repeat locations, should throw IllegalArgumentException");
+				"Word does not take location list that contains a null value, should throw IllegalArgumentException");
 	}
 
 }
