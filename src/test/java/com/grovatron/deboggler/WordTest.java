@@ -100,5 +100,18 @@ class WordTest {
 				Arrays.asList(1, 2, 3, 6)
 		);
 	}
+	
+	/**
+	 * Attempt to construct Word with location list that has repeat locations, should throw exception.
+	 */
+	@Test
+	void testConstructor7() {
+		String word = "APE";
+		int value = 0;
+		List<Integer> location = List.of(1, 1, 2);
+		List<ValueModifier> modifiers = List.of();
+		assertThrows(IllegalArgumentException.class, () -> new Word(word, value, location, modifiers),
+				"Word does not take location list with repeat locations, should throw IllegalArgumentException");
+	}
 
 }
