@@ -3,10 +3,14 @@ package com.grovatron.deboggler;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 class OriginalPointCalculatorTest {
 	
@@ -49,6 +53,20 @@ class OriginalPointCalculatorTest {
 		letters.add(null);
 		assertThrows(IllegalArgumentException.class, () -> wordPointCalculator.calculatePoints(letters),
 				"calculatePoints does not List<Letter> that contains null value, should throw IllegalArgumentException.");
+	}
+	
+	@ParameterizedTest
+	@MethodSource("fourOrLess")
+	void testCalculatePoints4(List<Letter> letterList) {
+		int expected = 1;
+		int actual = wordPointCalculator.calculatePoints(letterList);
+		assertEquals(expected, actual, "Should return 1");
+	}
+	
+	static Stream<List<Letter>> fourOrLess() {
+		return Stream.of(
+				Arrays.asList(new Letter("S"), new Letter("T"), new Letter("A"), new Letter("R")),
+				Arrays.asList(new Letter("R"), new Letter("A"), new Letter("T")));
 	}
 
 }
