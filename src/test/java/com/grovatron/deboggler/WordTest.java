@@ -60,7 +60,7 @@ class WordTest {
 		List<Integer> location = null;
 		List<ValueModifier> modifiers = List.of();
 		assertThrows(IllegalArgumentException.class, () -> new Word(word, value, location, modifiers),
-				"Word does not take empty Strings, should throw IllegalArgumentException");
+				"Word does not take null location list, should throw IllegalArgumentException");
 	}
 	
 	/**
@@ -73,7 +73,7 @@ class WordTest {
 		List<Integer> location = List.of();
 		List<ValueModifier> modifiers = List.of();
 		assertThrows(IllegalArgumentException.class, () -> new Word(word, value, location, modifiers),
-				"Word does not take empty Strings, should throw IllegalArgumentException");
+				"Word does not take empty location list, should throw IllegalArgumentException");
 	}
 
 }
