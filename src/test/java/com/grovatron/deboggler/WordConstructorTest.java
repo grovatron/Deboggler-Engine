@@ -49,8 +49,19 @@ class WordConstructorTest {
 		WordConstructor wordConstructor = new WordConstructor(new OriginalPointCalculator());
 		List<Letter> letters = Arrays.asList(new Letter("A"), new Letter("P"), null);
 		assertThrows(IllegalArgumentException.class, () -> wordConstructor.constructWord(letters, List.of(1,2,3)),
-				"constructWord does not take List<Letter that contains null values,"
+				"constructWord does not take List<Letter> that contains null values,"
 				+ " should throw IllegalArgumentException");
+	}
+	
+	/**
+	 * Attempt to call constructWord with null List<Integer>, should throw exception.
+	 */
+	@Test
+	void testConstructWord4() {
+		WordConstructor wordConstructor = new WordConstructor(new OriginalPointCalculator());
+		List<Letter> letters = Arrays.asList(new Letter("A"), new Letter("P"), new Letter("E"));
+		assertThrows(IllegalArgumentException.class, () -> wordConstructor.constructWord(letters, null),
+				"constructWord does not take List<Integer>, should throw IllegalArgumentException.");
 	}
 
 }
