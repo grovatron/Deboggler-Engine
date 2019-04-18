@@ -1,5 +1,7 @@
 package com.grovatron.deboggler;
 
+import java.util.List;
+
 /**
  * Responsible for constructing words found on the 2d <code>Letter</code> matrix.
  * 
@@ -18,5 +20,9 @@ public class WordConstructor {
 	 */
 	public WordConstructor(WordPointCalculator wordPointCalculator) {
 		this.wordPointCalculator = wordPointCalculator;
+	}
+	
+	public Word constructWord(List<Letter> letters, List<Integer> location) {
+		return null;
 	}
 }
