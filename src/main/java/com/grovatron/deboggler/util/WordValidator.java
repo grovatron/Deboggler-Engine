@@ -57,6 +57,12 @@ public class WordValidator {
 		return false;
 	}
 
+	/**
+	 * Validates the list of <code>ValueModifier</code> objects, <code>modifiers</code> for the
+	 * <code>Word</code> constructor.
+	 * @param modifiers List of <code>ValueModifier</code> objects.
+	 * @return Boolean value representing whether the input is valid.
+	 */
 	public static boolean validateModifierListInput(List<ValueModifier> modifiers) {
 		return modifiers != null &&
 				!modifiers.contains(null);
