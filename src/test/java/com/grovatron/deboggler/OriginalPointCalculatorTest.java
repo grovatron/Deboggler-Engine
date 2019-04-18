@@ -55,6 +55,10 @@ class OriginalPointCalculatorTest {
 				"calculatePoints does not List<Letter> that contains null value, should throw IllegalArgumentException.");
 	}
 	
+	/**
+	 * Pass three and four letter word to calculatePoints, should return 1.
+	 * @param letterList
+	 */
 	@ParameterizedTest
 	@MethodSource("fourOrLess")
 	void testCalculatePoints4(List<Letter> letterList) {
@@ -68,5 +72,7 @@ class OriginalPointCalculatorTest {
 				Arrays.asList(new Letter("S"), new Letter("T"), new Letter("A"), new Letter("R")),
 				Arrays.asList(new Letter("R"), new Letter("A"), new Letter("T")));
 	}
+	
+	
 
 }
