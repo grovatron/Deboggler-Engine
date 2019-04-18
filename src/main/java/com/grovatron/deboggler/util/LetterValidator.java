@@ -17,7 +17,6 @@ public class LetterValidator {
 	 */
 	public static boolean validateStringInput(String input) {
 		return input != null &&
-				!input.isEmpty() &&
 				!input.isBlank() &&
 				!containsNonAlphabeticChar(input) &&
 				(input.length() == 1 || input.equalsIgnoreCase("QU")) &&
