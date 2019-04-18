@@ -6,9 +6,15 @@ import org.junit.jupiter.api.Test;
 
 class WordConstructorTest {
 
+	/**
+	 * Attempt to construct WordConstructorTest with null WordPointCalculator,
+	 * should throw exception.
+	 */
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void testConstructor1() {
+		assertThrows(IllegalArgumentException.class, () -> new WordConstructor(null),
+				"WordConstructor does not take null WordPointCalculator, should throw"
+				+ " IllegalArgumentException.");
 	}
 
 }
