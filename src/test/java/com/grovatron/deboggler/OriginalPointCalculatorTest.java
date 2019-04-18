@@ -120,5 +120,16 @@ class OriginalPointCalculatorTest {
 		int actual = wordPointCalculator.calculatePoints(letters);
 		assertEquals(expected, actual, "Should return 4");
 	}
+	
+	/**
+	 * Pass five letter word, including "QU", to calculatePoints, should return 2.
+	 */
+	@Test
+	void testCalculatePoints9() {
+		List<Letter> letters = Arrays.asList(new Letter("QU"), new Letter("E"), new Letter("S"), new Letter("T"));
+		int expected = 2;
+		int actual = wordPointCalculator.calculatePoints(letters);
+		assertEquals(expected, actual, "Should return 2");
+	}
 
 }
