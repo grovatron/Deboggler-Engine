@@ -118,7 +118,7 @@ class OriginalPointCalculatorTest {
 				new Letter("L"), new Letter("O"), new Letter("W"), new Letter("S"));
 		int expected = 11;
 		int actual = wordPointCalculator.calculatePoints(letters);
-		assertEquals(expected, actual, "Should return 4");
+		assertEquals(expected, actual, "Should return 11");
 	}
 	
 	/**
@@ -130,6 +130,18 @@ class OriginalPointCalculatorTest {
 		int expected = 2;
 		int actual = wordPointCalculator.calculatePoints(letters);
 		assertEquals(expected, actual, "Should return 2");
+	}
+	
+	/**
+	 * Pass eight letter word, including "QU" to calculatePoints, should return 11.
+	 */
+	@Test
+	void testCalculatePoints10() {
+		List<Letter> letters = Arrays.asList(new Letter("QU"), new Letter("E"), new Letter("S"), new Letter("T"),
+				new Letter("I"), new Letter("N"), new Letter("G"));
+		int expected = 11;
+		int actual = wordPointCalculator.calculatePoints(letters);
+		assertEquals(expected, actual, "Should return 11");
 	}
 
 }
