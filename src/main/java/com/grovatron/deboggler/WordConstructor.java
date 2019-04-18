@@ -27,7 +27,7 @@ public class WordConstructor {
 	
 	public Word constructWord(List<Letter> letters, List<Integer> location) {
 		if (letters == null || letters.isEmpty() || letters.contains(null) ||
-				location == null || location.isEmpty()) {
+				location == null || location.isEmpty() || location.contains(null)) {
 			throw new IllegalArgumentException();
 		}
 		return null;
