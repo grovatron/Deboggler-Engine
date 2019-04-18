@@ -10,7 +10,13 @@ public class OriginalPointCalculator implements WordPointCalculator {
 			throw new IllegalArgumentException();
 		}
 		// TODO Auto-generated method stub
-		return letters.size() <= 4 ? 1: letters.size() - 3;
+		if (letters.size() <= 4) {
+			return 1;
+		} else if (letters.size() < 8) {
+			return letters.size() - 3;
+		} else {
+			return 11;
+		}
 	}
 
 }
