@@ -49,5 +49,18 @@ class WordTest {
 		assertThrows(IllegalArgumentException.class, () -> new Word(word, value, location, modifiers),
 				"Word does not take whitespace Strings, should throw IllegalArgumentException");
 	}
+	
+	/**
+	 * Attempt to construct Word with null List<Integer>, should throw exception.
+	 */
+	@Test
+	void testConstructor4() {
+		String word = "APE";
+		int value = 0;
+		List<Integer> location = null;
+		List<ValueModifier> modifiers = List.of();
+		assertThrows(IllegalArgumentException.class, () -> new Word(word, value, location, modifiers),
+				"Word does not take empty Strings, should throw IllegalArgumentException");
+	}
 
 }
