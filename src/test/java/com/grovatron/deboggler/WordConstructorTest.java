@@ -2,6 +2,7 @@ package com.grovatron.deboggler;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -36,7 +37,20 @@ class WordConstructorTest {
 	void testConstructWord2() {
 		WordConstructor wordConstructor = new WordConstructor(new OriginalPointCalculator());
 		assertThrows(IllegalArgumentException.class, () -> wordConstructor.constructWord(List.of(), List.of(1,2,3)),
-				"constructWord does not take empty List<Integer>, should throw IllegalArgumentException");
+				"constructWord does not take empty List<Letter>, should throw IllegalArgumentException");
+	}
+	
+	/**
+	 * Attempt to call constructWord with a List<Letter> that contains null values,
+	 * should throw exception.
+	 */
+	@Test
+	void testConstructWord3() {
+		WordConstructor wordConstructor = new WordConstructor(new OriginalPointCalculator());
+		List<Letter> letters = Arrays.asList(new Letter("A"), new Letter("P"), null);
+		assertThrows(IllegalArgumentException.class, () -> wordConstructor.constructWord(letters, List.of(1,2,3)),
+				"constructWord does not take List<Letter that contains null values,"
+				+ " should throw IllegalArgumentException");
 	}
 
 }
