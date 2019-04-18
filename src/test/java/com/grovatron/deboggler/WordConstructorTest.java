@@ -115,4 +115,17 @@ class WordConstructorTest {
 				"constructWord does not take List<Letter> that is longer than List<Integer>, "
 				+ "should throw IllegalArgumentException.");
 	}
+	
+	/**
+	 * Construct three letter word with OriginalPointCalculator
+	 */
+	@Test
+	void testConstructWord9() {
+		WordConstructor wordConstructor = new WordConstructor(new OriginalPointCalculator());
+		List<Letter> letters = Arrays.asList(new Letter("A"), new Letter("P"), new Letter("E"), new Letter("S"));
+		List<Integer> location = Arrays.asList(1, 2, 3, 6);
+		Word expected = new Word("APES", 1, location, Arrays.asList());
+		Word actual = wordConstructor.constructWord(letters, location);
+		assertEquals(expected, actual);
+	}
 }
