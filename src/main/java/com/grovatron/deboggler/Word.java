@@ -28,6 +28,9 @@ public class Word {
 	 * calculating the point value.
 	 */
 	public Word(String word, int value, List<Integer> location, List<ValueModifier> modifiers) {
+		if (word == null) {
+			throw new IllegalArgumentException();
+		}
 		this.word = word;
 		this.value = value;
 		this.location = location;
