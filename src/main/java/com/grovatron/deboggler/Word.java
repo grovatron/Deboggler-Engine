@@ -76,5 +76,64 @@ public class Word {
 	public List<ValueModifier> getModifiers() {
 		return modifiers;
 	}
+
+	/**
+	 * Returns a hashCode
+	 * @return <code>Word</code> hashcode
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((location == null) ? 0 : location.hashCode());
+		result = prime * result + ((modifiers == null) ? 0 : modifiers.hashCode());
+		result = prime * result + value;
+		result = prime * result + ((word == null) ? 0 : word.hashCode());
+		return result;
+	}
+
+	/**
+	 * Tests whether another <code>Object</code> is equal to this <code>Word</code> object.
+	 * @param obj <code>Object</code> to test equality against.
+	 * @return Boolean value of <code>Word</code> equality
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (!(obj instanceof Word)) {
+			return false;
+		}
+		Word other = (Word) obj;
+		if (location == null) {
+			if (other.location != null) {
+				return false;
+			}
+		} else if (!location.equals(other.location)) {
+			return false;
+		}
+		if (modifiers == null) {
+			if (other.modifiers != null) {
+				return false;
+			}
+		} else if (!modifiers.equals(other.modifiers)) {
+			return false;
+		}
+		if (value != other.value) {
+			return false;
+		}
+		if (word == null) {
+			if (other.word != null) {
+				return false;
+			}
+		} else if (!word.equals(other.word)) {
+			return false;
+		}
+		return true;
+	}
 	
 }
