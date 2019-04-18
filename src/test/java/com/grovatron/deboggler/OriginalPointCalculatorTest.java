@@ -2,6 +2,7 @@ package com.grovatron.deboggler;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -42,7 +43,10 @@ class OriginalPointCalculatorTest {
 	 */
 	@Test
 	void testCalculatePoints3() {
-		List<Letter> letters = List.of(new Letter("A"), new Letter("P"), null);
+		List<Letter> letters = new ArrayList<Letter>();
+		letters.add(new Letter("A"));
+		letters.add(new Letter("P"));
+		letters.add(null);
 		assertThrows(IllegalArgumentException.class, () -> wordPointCalculator.calculatePoints(letters),
 				"calculatePoints does not List<Letter> that contains null value, should throw IllegalArgumentException.");
 	}
