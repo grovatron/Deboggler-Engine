@@ -10,7 +10,7 @@ public class OriginalPointCalculator implements WordPointCalculator {
 			throw new IllegalArgumentException();
 		}
 		// TODO Auto-generated method stub
-		return 0;
+		return 1;
 	}
 
 }
