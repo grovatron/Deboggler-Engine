@@ -8,8 +8,9 @@ import java.util.List;
  * unique words that can be constructed from the <code>Letter</code> grid.
  * 
  * The components that make up the dependencies of the <code>Deboggler</code> are
- * customizable; they need only implement the <code>Dictionary</code>,
- * <code>WordPointCalculator</code>, and <code>WordSet</code> interfaces, respectively.
+ * customizable; they need only implement the <code>Dictionary</code>
+ * and <code>WordSet</code> interfaces, respectively. <code>WordConstructor</code>
+ * is created with a customizable <code>WordPointCalculator</code>.
  * 
  * @author Grover Sundstrom (grover.a.sundstrom@gmail.com)
  * @version 0.0.1 04/15/2019
@@ -19,18 +20,19 @@ public class Deboggler {
 
 	
 	private final Dictionary dictionary;
-	private final WordPointCalculator calculator;
+	private final WordConstructor wordConstructor;
 	private final WordSet wordSet;
 	
 	/**
 	 * Creates an instance of <code>Debogger</code>.
 	 * @param dictionary Object that implements the <code>Dictionary</code> interface.
-	 * @param calculator Object that implements the <code>WordPointCalculator</code> interface.
+	 * @param wordConstructor Object that constructs <code>Word</code> objects from 
+	 * <code>Letter</code> objects in the 2d matrix.
 	 * @param wordSet Object that implements the <code>WordSet</code> interface.
 	 */
-	public Deboggler(Dictionary dictionary, WordPointCalculator calculator, WordSet wordSet) {
+	public Deboggler(Dictionary dictionary, WordConstructor wordConstructor, WordSet wordSet) {
 		this.dictionary = dictionary;
-		this.calculator = calculator;
+		this.wordConstructor = wordConstructor;
 		this.wordSet = wordSet;
 	}
 	
