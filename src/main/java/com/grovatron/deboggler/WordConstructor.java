@@ -19,6 +19,9 @@ public class WordConstructor {
 	 * interface.
 	 */
 	public WordConstructor(WordPointCalculator wordPointCalculator) {
+		if (wordPointCalculator == null) {
+			throw new IllegalArgumentException();
+		}
 		this.wordPointCalculator = wordPointCalculator;
 	}
 	
