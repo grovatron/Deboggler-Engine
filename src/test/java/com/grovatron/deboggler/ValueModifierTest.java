@@ -7,8 +7,9 @@ import org.junit.jupiter.api.Test;
 class ValueModifierTest {
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void testConstructor1() {
+		assertThrows(IllegalArgumentException.class, () -> new ValueModifier(null, 2), 
+				"ValueModifier does not take null Modifier, should throw IllegalArgumentException.");
 	}
 
 }
