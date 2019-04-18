@@ -10,10 +10,14 @@ public class OriginalPointCalculator implements WordPointCalculator {
 			throw new IllegalArgumentException();
 		}
 		// TODO Auto-generated method stub
-		if (letters.size() <= 4) {
+		int totalLetters = 0;
+		for (Letter letter : letters) {
+			totalLetters += letter.getLetter().length();
+		}
+		if (totalLetters <= 4) {
 			return 1;
-		} else if (letters.size() < 8) {
-			return letters.size() - 3;
+		} else if (totalLetters < 8) {
+			return totalLetters - 3;
 		} else {
 			return 11;
 		}
