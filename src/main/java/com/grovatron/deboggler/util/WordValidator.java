@@ -32,6 +32,7 @@ public class WordValidator {
 		return listInput != null &&
 				!listInput.isEmpty() &&
 				listInput.size() == stringInput.length() &&
+				!containsNull(listInput) &&
 				!containsRepeats(listInput);
 	}
 	
@@ -39,6 +40,15 @@ public class WordValidator {
 		Set<Integer> intSet = new HashSet<>();
 		for (int number : listInput) {
 			if (!intSet.add(number)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	private static boolean containsNull(List<Integer> listInput) {
+		for (Integer number : listInput) {
+			if (number == null) {
 				return true;
 			}
 		}
