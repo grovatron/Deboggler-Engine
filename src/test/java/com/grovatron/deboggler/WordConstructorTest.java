@@ -87,5 +87,19 @@ class WordConstructorTest {
 				"constructWord does not take List<Integer> that contains null values, "
 				+ "should throw IllegalArgumentException.");
 	}
+	
+	/**
+	 * Attempt to call constructWord with List<Letter> that is shorter than List<Integer>,
+	 * should throw exception.
+	 */
+	@Test
+	void testConstructWord7() {
+		WordConstructor wordConstructor = new WordConstructor(new OriginalPointCalculator());
+		List<Letter> letters = Arrays.asList(new Letter("A"), new Letter("P"), new Letter("E"));
+		List<Integer> location = Arrays.asList(1, 2, 3, 6);
+		assertThrows(IllegalArgumentException.class, () -> wordConstructor.constructWord(letters, location),
+				"constructWord does not take List<Letter> that is shorter than List<Integer>, "
+				+ "should throw IllegalArgumentException.");
+	}
 
 }
