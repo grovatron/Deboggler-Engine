@@ -73,6 +73,16 @@ class OriginalPointCalculatorTest {
 				Arrays.asList(new Letter("R"), new Letter("A"), new Letter("T")));
 	}
 	
-	
+	/**
+	 * Pass five letter word to calculatePoints, should return 2.
+	 */
+	@Test
+	void testCalculatePoints5() {
+		List<Letter> letters = Arrays.asList(new Letter("H"), new Letter("A"), new Letter("N"), new Letter("D"),
+				new Letter("S"));
+		int expected = 2;
+		int actual = wordPointCalculator.calculatePoints(letters);
+		assertEquals(expected, actual, "Should return 2");
+	}
 
 }
