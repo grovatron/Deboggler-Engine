@@ -10,6 +10,15 @@ package com.grovatron.deboggler.dictionary;
  */
 public class TrieDictionary implements Dictionary {
 
+	private final TrieNode root;
+	
+	/**
+	 * Contstructs an instance of <code>TrieDictionary</code>.
+	 * @param root Root <code>TrieNode</code> of the <code>TrieDictionary</code>.
+	 */
+	public TrieDictionary(TrieNode root) {
+		this.root = root;
+	}
 	
 	@Override
 	public boolean isValidPrefix(String prefix) {
