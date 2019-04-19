@@ -98,5 +98,15 @@ class HashMapWordSetTest {
 		assertThrows(IllegalArgumentException.class, () -> wordSet.addWord(null),
 				"addWord does not take null Word argument, should throw IllegalArgumentException.");
 	}
+	
+	/**
+	 * Call getWords on an empty HashMapWordSet, should return an empty List<Word>.
+	 */
+	@Test
+	void testGetWords1() {
+		List<Word> expected = Arrays.asList();
+		List<Word> actual = wordSet.getWords();
+		assertEquals(expected, actual, "Should return an empty List<Word>");
+	}
 
 }
