@@ -49,6 +49,9 @@ public class TrieNode {
 	}
 	
 	public TrieNode getChild(char letter) {
+		if (Character.isLowerCase(letter)) {
+			throw new IllegalArgumentException(letter + " is invalid argument, getChild does not take lower case char argument.");
+		}
 		return null;
 	}
 }
