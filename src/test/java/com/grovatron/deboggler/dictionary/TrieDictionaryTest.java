@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -94,6 +95,25 @@ class TrieDictionaryTest {
 		assertThrows(IllegalArgumentException.class, () -> dictionary.isValidPrefix("Apple"),
 				"isValidPrefix does not take String that contains lower case characters, "
 				+ "should throw IllegalArgumentException.");
+	}
+	
+	/**
+	 * Pass valid word, should return true
+	 */
+	@ParameterizedTest
+	@MethodSource("getWords")
+	void testIsValidWord1(String validWord) {
+		boolean expected = true;
+		boolean actual = dictionary.isValidWord(validWord);
+		assertEquals(expected, actual, "Should return true");
+	}
+	
+	static Stream<String> getWords() {
+		List<String> wordList = new ArrayList<>();
+		for (String word : testFile.split("\n")) {
+			wordList.add(word.toUpperCase());
+		}
+		return wordList.stream();
 	}
 
 
