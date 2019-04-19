@@ -57,7 +57,7 @@ class TrieDictionaryConstructorTest {
 		String testFile = "\n\n\n\n\n";
 		InputStream inputStream = new ByteArrayInputStream(testFile.getBytes(Charset.forName("UTF-8")));
 		assertThrows(IllegalArgumentException.class, () -> dictionaryConstructor.buildDictionary(inputStream),
-				"InputStream must have only one word per line, should throw IllegalArgumentException");
+				"InputStream must contain at least one word, should throw IllegalArgumentException");
 	}
 	
 	/**
