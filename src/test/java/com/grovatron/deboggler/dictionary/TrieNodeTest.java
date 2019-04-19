@@ -120,5 +120,16 @@ class TrieNodeTest {
 		}
 	}
 	
+	/**
+	 * Attempt to pass lower case char as argument, should throw exception.
+	 */
+	@ParameterizedTest
+	@ValueSource(chars = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
+			'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'})
+	void testGetChild1(char letter) {
+		assertThrows(IllegalArgumentException.class, () -> node.getChild(letter), 
+				"getChild does not take lower case char, should throw IllegalArgumentException.");
+	}
+	
 
 }
