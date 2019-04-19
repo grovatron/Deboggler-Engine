@@ -45,6 +45,9 @@ public class TrieDictionary implements Dictionary {
 	
 	@Override
 	public boolean isValidWord(String word) {
+		if (word == null) {
+			throw new IllegalArgumentException("isValidWord does not take null String argument.");
+		}
 		TrieNode node = root;
 		for (int i = 0; i < word.length(); i++) {
 			char letter = word.charAt(i);
