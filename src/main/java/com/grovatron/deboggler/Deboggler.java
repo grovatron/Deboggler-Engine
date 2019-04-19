@@ -3,6 +3,7 @@ package com.grovatron.deboggler;
 import java.util.List;
 
 import com.grovatron.deboggler.dictionary.Dictionary;
+import com.grovatron.deboggler.util.LetterGridValidator;
 
 /**
  * The <code>Deboggler</code> class comprises the heart of the Deboggler engine.
@@ -60,9 +61,7 @@ public class Deboggler {
 	 * that can be constructed from the <code>letterGrid</code>
 	 */
 	public List<Word> getWordList(Letter[][] letterGrid) {
-		if (letterGrid == null) {
-			throw new IllegalArgumentException("getWordList does not take null Letter[][]");
-		}
+		LetterGridValidator.validateLetterGrid(letterGrid);
 		return null;
 	}
 }
