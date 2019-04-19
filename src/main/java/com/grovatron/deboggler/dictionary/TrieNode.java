@@ -22,4 +22,14 @@ public class TrieNode {
 		this.children = new TrieNode[26];
 		this.endsWord = false;
 	}
+	
+	/**
+	 * Adds a <code>TrieNode</code> child in <code>children</code> at
+	 * the index corresponding to <code>letter</code>
+	 * @param letter <code>char</code> value that corresponds to an index
+	 * in <code>children</code>
+	 */
+	public void addChild(char letter) {
+		
+	}
 }
