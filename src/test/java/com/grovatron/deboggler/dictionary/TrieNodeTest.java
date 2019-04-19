@@ -3,6 +3,7 @@ package com.grovatron.deboggler.dictionary;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -81,5 +82,24 @@ class TrieNodeTest {
 		boolean actual = node.addChild(letter);
 		assertEquals(expected, actual);
 	}
+	
+	/**
+	 * Add every single upper case letter, should pass.
+	 */
+	@Test
+	void testAddChild7() {
+		char[] letters = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
+				'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+		try {
+			for (char letter : letters) {
+				if (!node.addChild(letter)) {
+					throw new Exception();
+				}
+			}
+		} catch (Exception e) {
+			fail("Should return true");
+		}
+	}
+	
 
 }
