@@ -34,6 +34,9 @@ public class Deboggler {
 	 * @param wordSet Object that implements the <code>WordSet</code> interface.
 	 */
 	public Deboggler(Dictionary dictionary, WordConstructor wordConstructor, WordSet wordSet, int minLength) {
+		if (dictionary == null) {
+			throw new IllegalArgumentException("Constructor does not take null Dictionary value");
+		}
 		this.dictionary = dictionary;
 		this.wordConstructor = wordConstructor;
 		this.wordSet = wordSet;
