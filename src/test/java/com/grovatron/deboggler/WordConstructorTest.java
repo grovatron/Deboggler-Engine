@@ -117,7 +117,7 @@ class WordConstructorTest {
 	}
 	
 	/**
-	 * Construct three letter word with OriginalPointCalculator
+	 * Construct four letter word with OriginalPointCalculator
 	 */
 	@Test
 	void testConstructWord9() {
@@ -125,6 +125,20 @@ class WordConstructorTest {
 		List<Letter> letters = Arrays.asList(new Letter("A"), new Letter("P"), new Letter("E"), new Letter("S"));
 		List<Integer> location = Arrays.asList(1, 2, 3, 6);
 		Word expected = new Word("APES", 1, location, Arrays.asList());
+		Word actual = wordConstructor.constructWord(letters, location);
+		assertEquals(expected, actual);
+	}
+	
+	/**
+	 * Construct eight letter word, including "QU", with OriginalPointCalculator
+	 */
+	@Test
+	void testConstructWord10() {
+		WordConstructor wordConstructor = new WordConstructor(new OriginalPointCalculator());
+		List<Letter> letters = Arrays.asList(new Letter("QU"), new Letter("E"), new Letter("S"), new Letter("T"),
+				new Letter("I"), new Letter("O"), new Letter("N"));
+		List<Integer> location = Arrays.asList(1, 2, 3, 7, 6, 5, 4);
+		Word expected = new Word("QUESTION", 11, location, Arrays.asList());
 		Word actual = wordConstructor.constructWord(letters, location);
 		assertEquals(expected, actual);
 	}
