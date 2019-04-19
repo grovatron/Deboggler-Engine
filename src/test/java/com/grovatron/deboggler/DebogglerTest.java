@@ -32,8 +32,9 @@ class DebogglerTest {
 	}
 	
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void testConstructor1() {
+		assertThrows(IllegalArgumentException.class, () -> new Deboggler(null, wordConstructor, wordSet, minLength),
+				"Constructor does not take null Dictionary, should throw IllegalArgumentException.");
 	}
 
 }
