@@ -37,6 +37,9 @@ public class Deboggler {
 		if (dictionary == null) {
 			throw new IllegalArgumentException("Constructor does not take null Dictionary value");
 		}
+		if (wordConstructor == null) {
+			throw new IllegalArgumentException("Constructor does not take null WordConstructor value");
+		}
 		this.dictionary = dictionary;
 		this.wordConstructor = wordConstructor;
 		this.wordSet = wordSet;
