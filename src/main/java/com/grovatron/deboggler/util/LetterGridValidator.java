@@ -19,6 +19,7 @@ public class LetterGridValidator {
 	public static void validateLetterGrid(Letter[][] letterGrid) {
 		checkIfNull(letterGrid);
 		checkIfEmpty(letterGrid);
+		checkIfJagged(letterGrid);
 	}
 	
 	private static void checkIfNull(Letter[][] letterGrid) {
@@ -33,6 +34,15 @@ public class LetterGridValidator {
 				if (letterGrid[i][j] == null) {
 					throw new IllegalArgumentException("getWordList does not take Letter[][] with null values");
 				}
+			}
+		}
+	}
+	
+	private static void checkIfJagged(Letter[][] letterGrid) {
+		int rowLength = letterGrid.length;
+		for (Letter[] column : letterGrid) {
+			if (column.length != rowLength) {
+				throw new IllegalArgumentException("getWordList does not take jagged Letter[][].");
 			}
 		}
 	}
