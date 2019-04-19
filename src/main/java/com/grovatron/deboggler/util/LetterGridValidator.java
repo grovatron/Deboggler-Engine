@@ -18,11 +18,22 @@ public class LetterGridValidator {
 	 */
 	public static void validateLetterGrid(Letter[][] letterGrid) {
 		checkIfNull(letterGrid);
+		checkIfEmpty(letterGrid);
 	}
 	
 	private static void checkIfNull(Letter[][] letterGrid) {
 		if (letterGrid == null) {
 			throw new IllegalArgumentException("getWordList does not take null Letter[][].");
+		}
+	}
+	
+	private static void checkIfEmpty(Letter[][] letterGrid) {
+		for (int i = 0; i < letterGrid.length; i++) {
+			for (int j = 0; j < letterGrid[i].length; j++) {
+				if (letterGrid[i][j] == null) {
+					throw new IllegalArgumentException("getWordList does not take Letter[][] with null values");
+				}
+			}
 		}
 	}
 }
