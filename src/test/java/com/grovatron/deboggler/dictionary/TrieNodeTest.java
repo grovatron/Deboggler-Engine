@@ -152,5 +152,15 @@ class TrieNodeTest {
 				"getChild does not take digit char, should throw IllegalArgumentException.");
 	}
 	
+	/**
+	 * Attempt to pass whitespace char as argument, should throw exception.
+	 */
+	@ParameterizedTest
+	@ValueSource(chars = {' ', '\t', '\n', '\r'})
+	void testGetChild4(char whitespace) {
+		assertThrows(IllegalArgumentException.class, () -> node.getChild(whitespace), 
+				"getChild does not take whitespace char, should throw IllegalArgumentException.");
+	}
+	
 
 }
