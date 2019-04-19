@@ -96,5 +96,16 @@ class DebogglerTest {
 		assertThrows(IllegalArgumentException.class, () -> deboggler.getWordList(letterGrid),
 				"getWordList does not take jagged Letter[][], should throw IllegalArgumentException.");
 	}
+	
+	/**
+	 * Pass Letter[][] with less than 2 rows and columns to getWordList, should throw exception.
+	 */
+	@Test
+	void testGetWordList4() {
+		Letter[][] letterGrid = {new Letter[] {new Letter("S")}};
+		assertThrows(IllegalArgumentException.class, () -> deboggler.getWordList(letterGrid),
+				"getWordList does not take Letter[][] with less than 2 rows and columns, "
+				+ "should throw IllegalArgumentException.");
+	}
 
 }
