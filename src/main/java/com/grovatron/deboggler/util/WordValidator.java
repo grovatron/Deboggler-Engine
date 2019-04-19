@@ -60,8 +60,9 @@ public class WordValidator {
 	private static boolean validLength(List<Integer> listInput, String stringInput) {
 		int quCount = 0;
 		int index = 0;
-		while ((index = stringInput.indexOf("QU", index)) >= 0) {
+		while (stringInput.indexOf("QU", index) >= 0) {
 			quCount++;
+			index = stringInput.lastIndexOf(stringInput, index) + 1;
 		}
 		return listInput.size() == stringInput.length() - quCount;
 	}
