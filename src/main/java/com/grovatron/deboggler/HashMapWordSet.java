@@ -32,6 +32,10 @@ public class HashMapWordSet implements WordSet {
 	 */
 	@Override
 	public boolean addWord(Word word) {
+		if (word == null) {
+			throw new IllegalArgumentException("addWord does not take null Word argument.");
+		}
+		
 		if (wordMap.containsKey(word.getWord()) &&
 				word.getValue() <= wordMap.get(word.getWord()).getValue()) {
 			return false;
