@@ -174,5 +174,18 @@ class TrieNodeTest {
 		assertEquals(expected, actual);
 	}
 	
+	/**
+	 * Pass one upper case char as argument after adding, should return a TrieNode object;
+	 */
+	@ParameterizedTest
+	@ValueSource(chars = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
+			'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'})
+	void testGetChild6(char letter) {
+		node.addChild(letter);
+		TrieNode expected = null;
+		TrieNode actual = node.getChild(letter);
+		assertNotEquals(expected, actual);
+	}
+	
 
 }
