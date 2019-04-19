@@ -136,6 +136,15 @@ class TrieDictionaryTest {
 		}
 		return prefixes.stream();
 	}
+	
+	/**
+	 * Pass null String to isValidWord, should throw exception
+	 */
+	@Test
+	void testIsValidWord3() {
+		assertThrows(IllegalArgumentException.class, () -> dictionary.isValidWord(null),
+				"isValidPrefix does not take null String, should throw IllegalArgumentException.");
+	}
 
 
 }
