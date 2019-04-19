@@ -10,7 +10,7 @@ import com.grovatron.deboggler.Letter;
  * @version 0.0.1 04/19/2019
  *
  */
-public class LetterGridValidator {
+public class DebogglerInputValidator {
 
 	/**
 	 * Validates <code>Letter[][] letterGrid</code> argument.
