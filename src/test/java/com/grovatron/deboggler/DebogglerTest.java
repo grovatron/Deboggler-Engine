@@ -68,5 +68,14 @@ class DebogglerTest {
 		assertThrows(IllegalArgumentException.class, () -> new Deboggler(dictionary, wordConstructor, wordSet, 0),
 				"Constructor does not take minLength < 1, should throw IllegalArgumentException.");
 	}
+	
+	/**
+	 * Pass null Letter[][] to getWordList, should throw exception.
+	 */
+	@Test
+	void testGetWordList1() {
+		assertThrows(IllegalArgumentException.class, () -> deboggler.getWordList(null),
+				"getWordList does not take null Letter[][], should throw IllegalArgumentException.");
+	}
 
 }
