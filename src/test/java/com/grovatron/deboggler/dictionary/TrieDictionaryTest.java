@@ -67,5 +67,14 @@ class TrieDictionaryTest {
 		boolean actual = dictionary.isValidPrefix("SANDWICH");
 		assertEquals(expected, actual, "Should return false");
 	}
+	
+	/**
+	 * Pass null String to isValidPrefix, should throw exception
+	 */
+	@Test
+	void testIsValidPrefix3() {
+		assertThrows(IllegalArgumentException.class, () -> dictionary.isValidPrefix(null),
+				"isValidPrefix does not take null String, should throw IllegalArgumentException.");
+	}
 
 }
