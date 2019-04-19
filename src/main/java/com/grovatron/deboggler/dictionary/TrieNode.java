@@ -40,6 +40,6 @@ public class TrieNode {
 			throw new IllegalArgumentException(letter + " is invalid argument, addChild does not take symbol or whitespace"
 					+ " char argument.");
 		}
-		return false;
+		return true;
 	}
 }
