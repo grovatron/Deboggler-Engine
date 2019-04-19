@@ -45,8 +45,14 @@ public class TrieDictionary implements Dictionary {
 	
 	@Override
 	public boolean isValidWord(String word) {
-		// TODO Auto-generated method stub
-		return true;
+		TrieNode node = root;
+		for (int i = 0; i < word.length(); i++) {
+			char letter = word.charAt(i);
+			if ((node = node.getChild(letter)) == null) {
+				return false;
+			}
+		}
+		return node.endsWord ? true : false;
 	}
 
 }
