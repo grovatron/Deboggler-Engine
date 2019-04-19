@@ -48,5 +48,31 @@ class TrieDictionaryConstructorTest {
 		assertThrows(IllegalArgumentException.class, () -> dictionaryConstructor.buildDictionary(inputStream),
 				"InputStream must have only one word per line, should throw IllegalArgumentException");
 	}
+	
+	/**
+	 * Attempt to pass InputStream that contains only blank lines, should throw exception.
+	 */
+	@Test
+	void testBuildDictionary4() {
+		String testFile = "\n\n\n\n\n";
+		InputStream inputStream = new ByteArrayInputStream(testFile.getBytes(Charset.forName("UTF-8")));
+		assertThrows(IllegalArgumentException.class, () -> dictionaryConstructor.buildDictionary(inputStream),
+				"InputStream must have only one word per line, should throw IllegalArgumentException");
+	}
+	
+	/**
+	 * Pass InputStream that contains one word on each line, should return TrieDictionary.
+	 */
+	@Test
+	void testBuildDictionary5() {
+		String testFile = "apple\ncat\nexplosive\ntrendy\nlively";
+		InputStream inputStream = new ByteArrayInputStream(testFile.getBytes(Charset.forName("UTF-8")));
+		try {
+			Dictionary dictionary = dictionaryConstructor.buildDictionary(inputStream);
+			assertNotEquals(null, dictionary, "Should return a TrieDictionary");
+		} catch (Exception ex) {
+			fail();
+		}
+	}
 
 }

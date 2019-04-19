@@ -29,8 +29,11 @@ public class TrieDictionaryConstructor implements DictionaryConstructor {
 			if (lineTokens.length > 1) {
 				throw new IllegalArgumentException("InputStream may only have one word per line.");
 			}
-			loadWord(root, lineTokens[0].toUpperCase());
-			count++;
+			
+			if (lineTokens[0].length() > 0) {
+				loadWord(root, lineTokens[0].toUpperCase());
+				count++;
+			}
 		}
 		if (count == 0) {
 			throw new IllegalArgumentException("InputStream must contain at least one word.");
