@@ -33,7 +33,7 @@ public class WordValidator {
 	public static boolean validateLocationListInput(List<Integer> listInput, String stringInput) {
 		return listInput != null &&
 				!listInput.isEmpty() &&
-				listInput.size() == stringInput.length() &&
+				validLength(listInput, stringInput) &&
 				!containsNull(listInput) &&
 				!containsRepeats(listInput);
 	}
@@ -55,6 +55,15 @@ public class WordValidator {
 			}
 		}
 		return false;
+	}
+	
+	private static boolean validLength(List<Integer> listInput, String stringInput) {
+		int quCount = 0;
+		int index = 0;
+		while ((index = stringInput.indexOf("QU", index)) >= 0) {
+			quCount++;
+		}
+		return listInput.size() == stringInput.length() - quCount;
 	}
 
 	/**
