@@ -15,7 +15,7 @@ import java.util.Map;
  */
 public class HashMapWordSet implements WordSet {
 	
-	private Map<String, Word> wordMap;
+	private final Map<String, Word> wordMap;
 	
 	/**
 	 * Creates an instance of HashMapWordSet.
