@@ -162,5 +162,17 @@ class TrieNodeTest {
 				"getChild does not take whitespace char, should throw IllegalArgumentException.");
 	}
 	
+	/**
+	 * Pass one upper case char as argument without adding, should return null;
+	 */
+	@ParameterizedTest
+	@ValueSource(chars = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
+			'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'})
+	void testGetChild5(char letter) {
+		TrieNode expected = null;
+		TrieNode actual = node.getChild(letter);
+		assertEquals(expected, actual);
+	}
+	
 
 }
