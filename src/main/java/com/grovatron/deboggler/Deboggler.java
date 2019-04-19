@@ -1,6 +1,10 @@
 package com.grovatron.deboggler;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import com.grovatron.deboggler.dictionary.Dictionary;
 import com.grovatron.deboggler.util.DebogglerInputValidator;
@@ -51,6 +55,47 @@ public class Deboggler {
 	 */
 	public List<Word> getWordList(Letter[][] letterGrid) {
 		DebogglerInputValidator.validateLetterGrid(letterGrid);
-		return null;
+		List<Letter> letterList = new ArrayList<>();
+		List<Integer> location = new ArrayList<>();
+		for (int row = 0; row < letterGrid.length; row++) {
+			for (int col = 0; col < letterGrid.length; col++) {
+				depthFirstSearch(letterGrid, row, col, letterList, new HashSet<Letter>(), location);
+			}
+		}
+		return wordSet.getWords();
+	}
+	
+	private void depthFirstSearch(Letter[][] letterGrid, int row, int col, List<Letter> letterList, Set<Letter> visited, List<Integer> location) {
+		Letter currentLetter = letterGrid[row][col];
+		String prefix = letterList.stream().map(Letter::getLetter).collect(Collectors.joining()) + currentLetter.getLetter();
+		if (!dictionary.isValidPrefix(prefix)) {
+			return;
+		}
+		visited.add(currentLetter);
+		location.add(getLocation(row, col, letterGrid.length));
+		letterList.add(currentLetter);
+		for (int i = -1; i <= 1; i++) {
+			for (int j = -1; j <= 1; j++) {
+				int x = row + i;
+				int y = col + j;
+				if (isValidCoordinate(x, y, letterGrid.length) && !visited.contains(letterGrid[x][y])) {
+					depthFirstSearch(letterGrid, x, y, letterList, new HashSet<Letter>(visited), location);
+				}
+			}
+		}
+		if (prefix.length() >= minLength && dictionary.isValidWord(prefix)) {
+			Word word = wordConstructor.constructWord(new ArrayList<>(letterList), new ArrayList<>(location));
+			wordSet.addWord(word);
+		}
+		letterList.remove(letterList.size() - 1);
+		location.remove(location.size() - 1);
+	}
+	
+	private int getLocation(int row, int col, int length) {
+		return (row * length) + (col % length);
+	}
+	
+	private boolean isValidCoordinate(int row, int col, int length) {
+		return (row >= 0 && row < length && col >= 0 && col < length);
 	}
 }
