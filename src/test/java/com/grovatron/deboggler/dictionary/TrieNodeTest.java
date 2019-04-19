@@ -26,5 +26,15 @@ class TrieNodeTest {
 		assertThrows(IllegalArgumentException.class, () -> node.addChild(letter), 
 				"addChild does not take lower case char, should throw IllegalArgumentException.");
 	}
+	
+	/**
+	 * Attempt to pass digit char as argument, should throw exception.
+	 */
+	@ParameterizedTest
+	@ValueSource(chars = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'})
+	void testAddChild2(char digit) {
+		assertThrows(IllegalArgumentException.class, () -> node.addChild(digit), 
+				"addChild does not take digit char, should throw IllegalArgumentException.");
+	}
 
 }
