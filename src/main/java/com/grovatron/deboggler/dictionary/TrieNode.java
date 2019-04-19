@@ -36,6 +36,10 @@ public class TrieNode {
 		if (Character.isDigit(letter)) {
 			throw new IllegalArgumentException(letter + " is invalid argument, addChild does not take digit char argument.");
 		}
+		if (!Character.isLetterOrDigit(letter)) {
+			throw new IllegalArgumentException(letter + " is invalid argument, addChild does not take symbol or whitespace"
+					+ " char argument.");
+		}
 		
 	}
 }
