@@ -24,6 +24,7 @@ public class Deboggler {
 	private final Dictionary dictionary;
 	private final WordConstructor wordConstructor;
 	private final WordSet wordSet;
+	private final int minLength;
 	
 	/**
 	 * Creates an instance of <code>Debogger</code>.
@@ -32,10 +33,11 @@ public class Deboggler {
 	 * <code>Letter</code> objects in the 2d matrix.
 	 * @param wordSet Object that implements the <code>WordSet</code> interface.
 	 */
-	public Deboggler(Dictionary dictionary, WordConstructor wordConstructor, WordSet wordSet) {
+	public Deboggler(Dictionary dictionary, WordConstructor wordConstructor, WordSet wordSet, int minLength) {
 		this.dictionary = dictionary;
 		this.wordConstructor = wordConstructor;
 		this.wordSet = wordSet;
+		this.minLength = minLength;
 	}
 	
 	/**
