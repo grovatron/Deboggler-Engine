@@ -1,4 +1,4 @@
-package com.grovatron.deboggler;
+package com.grovatron.deboggler.dictionary;
 
 /**
  * Responsible for validating prefixes and words found in the search process

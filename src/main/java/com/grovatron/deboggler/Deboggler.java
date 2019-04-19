@@ -2,6 +2,8 @@ package com.grovatron.deboggler;
 
 import java.util.List;
 
+import com.grovatron.deboggler.dictionary.Dictionary;
+
 /**
  * The <code>Deboggler</code> class comprises the heart of the Deboggler engine.
  * It has one method, getWordList, that returns a <code>Word</code> list of 
