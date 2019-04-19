@@ -25,7 +25,13 @@ public class TrieDictionary implements Dictionary {
 	
 	@Override
 	public boolean isValidPrefix(String prefix) {
-		// TODO Auto-generated method stub
+		TrieNode node = root;
+		for (int i = 0; i < prefix.length(); i++) {
+			char letter = prefix.charAt(i);
+			if ((node = node.getChild(letter)) == null) {
+				return false;
+			}
+		}
 		return true;
 	}
 
