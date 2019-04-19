@@ -101,5 +101,24 @@ class TrieNodeTest {
 		}
 	}
 	
+	/**
+	 * Add every single upper case letter (with one duplicate), should fail.
+	 */
+	@Test
+	void testAddChild8() {
+		char[] letters = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
+				'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'A', 'W', 'X', 'Y', 'Z'};
+		try {
+			for (char letter : letters) {
+				if (!node.addChild(letter)) {
+					throw new Exception();
+				}
+			}
+			fail("Should return false for duplicate");
+		} catch (Exception e) {
+			
+		}
+	}
+	
 
 }
