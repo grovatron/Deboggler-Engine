@@ -17,6 +17,9 @@ public class TrieDictionary implements Dictionary {
 	 * @param root Root <code>TrieNode</code> of the <code>TrieDictionary</code>.
 	 */
 	public TrieDictionary(TrieNode root) {
+		if (root == null) {
+			throw new IllegalArgumentException("Constructor does not take null TrieNode.");
+		}
 		this.root = root;
 	}
 	
