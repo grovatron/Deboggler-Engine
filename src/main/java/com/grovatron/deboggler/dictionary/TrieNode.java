@@ -29,7 +29,7 @@ public class TrieNode {
 	 * @param letter <code>char</code> value that corresponds to an index
 	 * in <code>children</code>
 	 */
-	public void addChild(char letter) {
+	public boolean addChild(char letter) {
 		if (Character.isLowerCase(letter)) {
 			throw new IllegalArgumentException(letter + " is invalid argument, addChild does not take lower case char argument.");
 		}
@@ -40,6 +40,6 @@ public class TrieNode {
 			throw new IllegalArgumentException(letter + " is invalid argument, addChild does not take symbol or whitespace"
 					+ " char argument.");
 		}
-		
+		return false;
 	}
 }
