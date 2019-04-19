@@ -85,5 +85,16 @@ class TrieDictionaryTest {
 		assertThrows(IllegalArgumentException.class, () -> dictionary.isValidPrefix(""),
 				"isValidPrefix does not take empty String, should throw IllegalArgumentException.");
 	}
+	
+	/**
+	 * Pass String that contains lower case characters to isValidPrefix, should throw exception
+	 */
+	@Test
+	void testIsValidPrefix5() {
+		assertThrows(IllegalArgumentException.class, () -> dictionary.isValidPrefix("Apple"),
+				"isValidPrefix does not take String that contains lower case characters, "
+				+ "should throw IllegalArgumentException.");
+	}
+
 
 }
