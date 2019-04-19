@@ -108,5 +108,43 @@ class HashMapWordSetTest {
 		List<Word> actual = wordSet.getWords();
 		assertEquals(expected, actual, "Should return an empty List<Word>");
 	}
+	
+	/**
+	 * Call getWords on HashMapWordSet that has all unique words added to it, expect List<Word>
+	 * contains all added words.
+	 */
+	@Test
+	void testGetWords2() {
+		String wordString1 = "APE";
+		int value1 = 1;
+		List<Integer> location1 = Arrays.asList(1, 2, 3);
+		List<ValueModifier> modifiers1 = Arrays.asList();
+		Word word1 = new Word(wordString1, value1, location1, modifiers1);
+		
+		String wordString2 = "TULIP";
+		int value2 = 3;
+		List<Integer> location2 = Arrays.asList(12, 13, 14, 15, 11);
+		List<ValueModifier> modifiers2 = Arrays.asList();
+		Word word2 = new Word(wordString2, value2, location2, modifiers2);
+		
+		String wordString3 = "QUESTION";
+		int value3 = 11;
+		List<Integer> location3 = Arrays.asList(0, 4, 5, 6, 3, 7, 9);
+		List<ValueModifier> modifiers3 = Arrays.asList();
+		Word word3 = new Word(wordString3, value3, location3, modifiers3);
+		
+		wordSet.addWord(word1);
+		wordSet.addWord(word2);
+		wordSet.addWord(word3);
+		
+		List<Word> wordList = wordSet.getWords();
+		
+		boolean containsWord1 = wordList.contains(word1);
+		boolean containsWord2 = wordList.contains(word2);
+		boolean containsWord3 = wordList.contains(word3);
+		boolean isSize3 = wordList.size() == 3;
+		
+		assertTrue(containsWord1 && containsWord2 && containsWord3 && isSize3, "Should be true.");
+	}
 
 }
