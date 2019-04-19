@@ -39,5 +39,14 @@ class DebogglerTest {
 		assertThrows(IllegalArgumentException.class, () -> new Deboggler(null, wordConstructor, wordSet, minLength),
 				"Constructor does not take null Dictionary, should throw IllegalArgumentException.");
 	}
+	
+	/**
+	 * Pass null WordConstructor to constructor, should throw exception.
+	 */
+	@Test
+	void testConstructor2() {
+		assertThrows(IllegalArgumentException.class, () -> new Deboggler(dictionary, null, wordSet, minLength),
+				"Constructor does not take null WordConstructor, should throw IllegalArgumentException.");
+	}
 
 }
