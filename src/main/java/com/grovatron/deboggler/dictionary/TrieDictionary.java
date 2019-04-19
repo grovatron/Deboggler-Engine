@@ -28,6 +28,10 @@ public class TrieDictionary implements Dictionary {
 		if (prefix == null) {
 			throw new IllegalArgumentException("isValidPrefix does not take null String argument.");
 		}
+		if (prefix.isBlank()) {
+			throw new IllegalArgumentException("isValidPrefix does not take blank String argument.");
+		}
+		
 		TrieNode node = root;
 		for (int i = 0; i < prefix.length(); i++) {
 			char letter = prefix.charAt(i);
