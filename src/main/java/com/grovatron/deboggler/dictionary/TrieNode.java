@@ -47,4 +47,8 @@ public class TrieNode {
 		children[index] = new TrieNode();
 		return true;
 	}
+	
+	public TrieNode getChild(char letter) {
+		return null;
+	}
 }
