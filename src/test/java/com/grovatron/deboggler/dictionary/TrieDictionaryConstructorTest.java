@@ -38,7 +38,15 @@ class TrieDictionaryConstructorTest {
 	}
 	
 	/**
-	 * 
+	 * Attempt to pass InputStream that contains lines with more than one word per line,
+	 * should throw exception.
 	 */
+	@Test
+	void testBuildDictionary3() {
+		String testFile = "One\nTwo\nThree Four\nFive\nSix";
+		InputStream inputStream = new ByteArrayInputStream(testFile.getBytes(Charset.forName("UTF-8")));
+		assertThrows(IllegalArgumentException.class, () -> dictionaryConstructor.buildDictionary(inputStream),
+				"InputStream must have only one word per line, should throw IllegalArgumentException");
+	}
 
 }
