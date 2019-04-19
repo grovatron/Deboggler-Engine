@@ -89,5 +89,14 @@ class HashMapWordSetTest {
 		boolean actual = wordSet.addWord(word1);
 		assertEquals(expected, actual, "Should return false");
 	}
+	
+	/**
+	 * Attempt to pass null Word to addWord method, should throw exception.
+	 */
+	@Test
+	void testAddWord5() {
+		assertThrows(IllegalArgumentException.class, () -> wordSet.addWord(null),
+				"addWord does not take null Word argument, should throw IllegalArgumentException.");
+	}
 
 }
