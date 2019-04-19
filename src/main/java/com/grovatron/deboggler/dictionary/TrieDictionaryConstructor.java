@@ -23,11 +23,13 @@ public class TrieDictionaryConstructor implements DictionaryConstructor {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 		int count = 0;
 		String line = null;
+		TrieNode root = new TrieNode();
 		while ((line = reader.readLine()) != null) {
 			String[] lineTokens = line.trim().split(" ");
 			if (lineTokens.length > 1) {
 				throw new IllegalArgumentException("InputStream may only have one word per line.");
 			}
+			loadWord(root, lineTokens[0].toUpperCase());
 			count++;
 		}
 		if (count == 0) {
@@ -35,6 +37,16 @@ public class TrieDictionaryConstructor implements DictionaryConstructor {
 		}
 		
 		return null;
+	}
+	
+	private void loadWord(TrieNode root, String word) {
+		TrieNode node = root;
+		for (int i = 0; i < word.length(); i++) {
+			char letter = word.charAt(i);
+			node.addChild(letter);
+			node = node.getChild(letter);
+		}
+		node.endsWord = true;
 	}
 
 }
