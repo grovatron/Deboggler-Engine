@@ -15,6 +15,9 @@ public class TrieDictionaryConstructor implements DictionaryConstructor {
 
 	@Override
 	public Dictionary buildDictionary(InputStream inputStream) throws IOException {
+		if (inputStream == null) {
+			throw new IllegalArgumentException("buildDictionary does not take null InputStream.");
+		}
 		// TODO Auto-generated method stub
 		return null;
 	}
