@@ -31,7 +31,10 @@ public class TrieNode {
 	 */
 	public void addChild(char letter) {
 		if (Character.isLowerCase(letter)) {
-			throw new IllegalArgumentException("addChild does not take lower case char argument.");
+			throw new IllegalArgumentException(letter + " is invalid argument, addChild does not take lower case char argument.");
+		}
+		if (Character.isDigit(letter)) {
+			throw new IllegalArgumentException(letter + " is invalid argument, addChild does not take digit char argument.");
 		}
 		
 	}
