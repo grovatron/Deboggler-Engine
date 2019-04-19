@@ -48,6 +48,9 @@ public class TrieDictionary implements Dictionary {
 		if (word == null) {
 			throw new IllegalArgumentException("isValidWord does not take null String argument.");
 		}
+		if (word.isBlank()) {
+			throw new IllegalArgumentException("isWord does not take blank String argument.");
+		}
 		TrieNode node = root;
 		for (int i = 0; i < word.length(); i++) {
 			char letter = word.charAt(i);
