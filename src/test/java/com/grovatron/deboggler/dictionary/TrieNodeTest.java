@@ -57,5 +57,17 @@ class TrieNodeTest {
 		assertThrows(IllegalArgumentException.class, () -> node.addChild(whitespace), 
 				"addChild does not take whitespace char, should throw IllegalArgumentException.");
 	}
+	
+	/**
+	 * Pass one upper case char as argument, should return true;
+	 */
+	@ParameterizedTest
+	@ValueSource(chars = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
+			'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'})
+	void testAddChild5(char letter) {
+		boolean expected = true;
+		boolean actual = node.addChild(letter);
+		assertEquals(expected, actual);
+	}
 
 }
