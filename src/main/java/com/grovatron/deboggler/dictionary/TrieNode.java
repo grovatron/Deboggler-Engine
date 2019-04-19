@@ -59,6 +59,7 @@ public class TrieNode {
 			throw new IllegalArgumentException(letter + " is invalid argument, getChild does not take symbol or whitespace"
 					+ " char argument.");
 		}
-		return null;
+		int index = letter - 'A';
+		return children[index];
 	}
 }
