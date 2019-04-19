@@ -49,5 +49,25 @@ class HashMapWordSetTest {
 		boolean actual = wordSet.addWord(word);
 		assertEquals(expected, actual, "Should return false");
 	}
+	
+	/**
+	 * Add two Word objects with same String value, but the second Word has a greater
+	 * int value. Should return true.
+	 */
+	@Test
+	void testAddWord3() {
+		String wordString = "APE";
+		int value1 = 1;
+		int value2 = 2;
+		List<Integer> location = Arrays.asList(1, 2, 3);
+		List<ValueModifier> modifiers = Arrays.asList();
+		Word word1 = new Word(wordString, value1, location, modifiers);
+		Word word2 = new Word(wordString, value2, location, modifiers);
+		
+		boolean expected = true;
+		wordSet.addWord(word1);
+		boolean actual = wordSet.addWord(word2);
+		assertEquals(expected, actual, "Should return true");
+	}
 
 }
