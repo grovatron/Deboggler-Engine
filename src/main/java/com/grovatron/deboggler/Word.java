@@ -30,12 +30,14 @@ public class Word {
 	 * calculating the point value.
 	 */
 	public Word(String word, int value, List<Integer> location, List<ValueModifier> modifiers) {
-		if (
-				!WordValidator.validateWordStringInput(word) ||
-				!WordValidator.validateLocationListInput(location, word) ||
-				!WordValidator.validateModifierListInput(modifiers)
-				) {
-			throw new IllegalArgumentException();
+		if(!WordValidator.validateWordStringInput(word)) {
+			throw new IllegalArgumentException("Input for argument 'word' is invalid");
+		}
+		if (!WordValidator.validateLocationListInput(location, word)) {
+			throw new IllegalArgumentException("Input for 'location' is invalid");
+		}
+		if (!WordValidator.validateModifierListInput(modifiers)) {
+			throw new IllegalArgumentException("Input for 'modifiers' is invalid");
 		}
 		this.word = word;
 		this.value = value;
