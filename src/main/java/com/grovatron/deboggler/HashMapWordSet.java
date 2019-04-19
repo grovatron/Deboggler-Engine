@@ -1,9 +1,9 @@
 package com.grovatron.deboggler;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Responsible for storing <code>Word</code> objects found while searching
@@ -52,8 +52,7 @@ public class HashMapWordSet implements WordSet {
 	 */
 	@Override
 	public List<Word> getWords() {
-		List<Word> words = new ArrayList<>();
-		return words;
+		return wordMap.values().stream().collect(Collectors.toList());
 	}
 
 }
