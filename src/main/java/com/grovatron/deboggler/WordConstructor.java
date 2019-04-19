@@ -1,6 +1,7 @@
 package com.grovatron.deboggler;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Responsible for constructing words found on the 2d <code>Letter</code> matrix.
@@ -31,6 +32,12 @@ public class WordConstructor {
 				letters.size() != location.size()) {
 			throw new IllegalArgumentException();
 		}
-		return null;
+		String word = letters.stream().map(Letter::getLetter).collect(Collectors.joining());
+		int value = wordPointCalculator.calculatePoints(letters);
+		List<ValueModifier> modifiers = letters.stream()
+											.map(Letter::getModifier)
+											.filter(modifier -> modifier != null)
+											.collect(Collectors.toList());
+		return new Word(word, value, location, modifiers);
 	}
 }
