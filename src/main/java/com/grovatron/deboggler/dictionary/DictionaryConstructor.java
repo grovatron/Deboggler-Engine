@@ -1,5 +1,6 @@
 package com.grovatron.deboggler.dictionary;
 
+import java.io.IOException;
 import java.io.InputStream;
 
 /**
@@ -19,5 +20,5 @@ public interface DictionaryConstructor {
 	 * @param inputStream Stream of words (one per line)
 	 * @return A fully constructed object that implements the <code>Dictionary</code> interface.
 	 */
-	Dictionary buildDictionary(InputStream inputStream);
+	Dictionary buildDictionary(InputStream inputStream) throws IOException;
 }
