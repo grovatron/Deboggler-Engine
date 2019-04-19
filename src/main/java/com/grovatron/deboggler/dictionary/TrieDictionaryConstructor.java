@@ -39,7 +39,7 @@ public class TrieDictionaryConstructor implements DictionaryConstructor {
 			throw new IllegalArgumentException("InputStream must contain at least one word.");
 		}
 		
-		return null;
+		return new TrieDictionary(root);
 	}
 	
 	private void loadWord(TrieNode root, String word) {
