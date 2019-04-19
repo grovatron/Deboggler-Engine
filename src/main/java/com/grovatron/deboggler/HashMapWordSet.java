@@ -25,12 +25,6 @@ public class HashMapWordSet implements WordSet {
 		wordMap = new HashMap<>();
 	}
 
-	/**
-	 * Adds a <code>Word</code> to the <code>HashMapWordSet</code>.
-	 * @param word <code>Word</code> to be added to the <code>HashMapWordSet</code>
-	 * @return Boolean value representing whether the <code>Word</code> was
-	 * successfully added.
-	 */
 	@Override
 	public boolean addWord(Word word) {
 		if (word == null) {
@@ -45,11 +39,6 @@ public class HashMapWordSet implements WordSet {
 		return true;
 	}
 
-	/**
-	 * Returns a list of all the <code>Word</code> objects in the
-	 * <code>HashMapWordSet</code>
-	 * @return List of <code>Word</code> objects.
-	 */
 	@Override
 	public List<Word> getWords() {
 		return wordMap.values().stream().collect(Collectors.toList());
