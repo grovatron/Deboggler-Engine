@@ -36,5 +36,16 @@ class TrieNodeTest {
 		assertThrows(IllegalArgumentException.class, () -> node.addChild(digit), 
 				"addChild does not take digit char, should throw IllegalArgumentException.");
 	}
+	
+	/**
+	 * Attempt to pass symbol char as argument, should throw exception.
+	 */
+	@ParameterizedTest
+	@ValueSource(chars = {'~', '`', '!', '@', '#', '$', '%', '^', '&', '*', '*', '(', ')', '_',
+			'-', '+', '=', '{', '}', '[', ']', '|', '\\', ':', ';', '"', '\'', '<', ',', '>', '.', '?', '/'})
+	void testAddChild3(char symbol) {
+		assertThrows(IllegalArgumentException.class, () -> node.addChild(symbol), 
+				"addChild does not take digit char, should throw IllegalArgumentException.");
+	}
 
 }
