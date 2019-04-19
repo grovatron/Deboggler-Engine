@@ -74,5 +74,20 @@ class TrieDictionaryConstructorTest {
 			fail();
 		}
 	}
+	
+	/**
+	 * Pass InputStream that contains some blank lines, should return TrieDictionary.
+	 */
+	@Test
+	void testBuildDictionary6() {
+		String testFile = "apple\n\ncat\nexplosive\n\ntrendy\nlively";
+		InputStream inputStream = new ByteArrayInputStream(testFile.getBytes(Charset.forName("UTF-8")));
+		try {
+			Dictionary dictionary = dictionaryConstructor.buildDictionary(inputStream);
+			assertNotEquals(null, dictionary, "Should return a TrieDictionary");
+		} catch (Exception ex) {
+			fail();
+		}
+	}
 
 }
