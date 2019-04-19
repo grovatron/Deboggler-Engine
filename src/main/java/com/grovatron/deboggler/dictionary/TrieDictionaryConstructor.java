@@ -24,6 +24,10 @@ public class TrieDictionaryConstructor implements DictionaryConstructor {
 		int count = 0;
 		String line = null;
 		while ((line = reader.readLine()) != null) {
+			String[] lineTokens = line.trim().split(" ");
+			if (lineTokens.length > 1) {
+				throw new IllegalArgumentException("InputStream may only have one word per line.");
+			}
 			count++;
 		}
 		if (count == 0) {
