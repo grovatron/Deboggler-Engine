@@ -20,6 +20,7 @@ public class LetterGridValidator {
 		checkIfNull(letterGrid);
 		checkIfEmpty(letterGrid);
 		checkIfJagged(letterGrid);
+		checkIfMinimumLength(letterGrid);
 	}
 	
 	private static void checkIfNull(Letter[][] letterGrid) {
@@ -44,6 +45,12 @@ public class LetterGridValidator {
 			if (column.length != rowLength) {
 				throw new IllegalArgumentException("getWordList does not take jagged Letter[][].");
 			}
+		}
+	}
+	
+	private static void checkIfMinimumLength(Letter[][] letterGrid) {
+		if (letterGrid.length < 2) {
+			throw new IllegalArgumentException("getWordList does not take Letter[][] with less than two rows and columns");
 		}
 	}
 }
