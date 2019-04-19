@@ -115,6 +115,28 @@ class TrieDictionaryTest {
 		}
 		return wordList.stream();
 	}
+	
+	/**
+	 * Pass invalid word, should return false.
+	 */
+	@ParameterizedTest
+	@MethodSource("getInvalidWords")
+	void testIsValidWord2(String invalidWord) {
+		boolean expected = false;
+		boolean actual = dictionary.isValidWord(invalidWord);
+		assertEquals(expected, actual, "Should return false.");
+	}
+	
+	static Stream<String> getInvalidWords() {
+		String[] words = testFile.split("\n");
+		List<String> prefixes = new ArrayList<>();
+		for (String word : words) {
+			for (int i = 0; i < word.length() - 1; i++) {
+				prefixes.add(word.substring(0, i + 1).toUpperCase());
+			}
+		}
+		return prefixes.stream();
+	}
 
 
 }
