@@ -48,6 +48,11 @@ public class TrieNode {
 		return true;
 	}
 	
+	/**
+	 * Returns the <code>TrieNode</code> child associated with <code>letter</code>
+	 * @param letter A <code>char</code> value representing a letter in a word.
+	 * @return The child value associated with <code>letter</code>.
+	 */
 	public TrieNode getChild(char letter) {
 		if (Character.isLowerCase(letter)) {
 			throw new IllegalArgumentException(letter + " is invalid argument, getChild does not take lower case char argument.");
