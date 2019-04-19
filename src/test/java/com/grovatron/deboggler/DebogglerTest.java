@@ -86,5 +86,15 @@ class DebogglerTest {
 		assertThrows(IllegalArgumentException.class, () -> deboggler.getWordList(new Letter[2][2]),
 				"getWordList does not take empty Letter[][], should throw IllegalArgumentException.");
 	}
+	
+	/**
+	 * Pass jagged Letter[][] to getWordList, should throw exception.
+	 */
+	@Test
+	void testGetWordList3() {
+		Letter[][] letterGrid = {new Letter[] {new Letter("S"), new Letter("T")}, new Letter[] {new Letter("A")}};
+		assertThrows(IllegalArgumentException.class, () -> deboggler.getWordList(letterGrid),
+				"getWordList does not take jagged Letter[][], should throw IllegalArgumentException.");
+	}
 
 }
