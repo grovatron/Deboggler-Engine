@@ -60,6 +60,9 @@ public class Deboggler {
 	 * that can be constructed from the <code>letterGrid</code>
 	 */
 	public List<Word> getWordList(Letter[][] letterGrid) {
+		if (letterGrid == null) {
+			throw new IllegalArgumentException("getWordList does not take null Letter[][]");
+		}
 		return null;
 	}
 }
