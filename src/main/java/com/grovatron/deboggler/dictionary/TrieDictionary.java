@@ -46,7 +46,7 @@ public class TrieDictionary implements Dictionary {
 	@Override
 	public boolean isValidWord(String word) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }
