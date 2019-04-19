@@ -1,5 +1,6 @@
 package com.grovatron.deboggler;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,8 +52,8 @@ public class HashMapWordSet implements WordSet {
 	 */
 	@Override
 	public List<Word> getWords() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Word> words = new ArrayList<>();
+		return words;
 	}
 
 }
