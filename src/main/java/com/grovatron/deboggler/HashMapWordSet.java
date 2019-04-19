@@ -32,7 +32,10 @@ public class HashMapWordSet implements WordSet {
 	 */
 	@Override
 	public boolean addWord(Word word) {
-		// TODO Auto-generated method stub
+		if (wordMap.containsKey(word.getWord())) {
+			return false;
+		}
+		wordMap.put(word.getWord(), word);
 		return true;
 	}
 
