@@ -32,7 +32,8 @@ public class HashMapWordSet implements WordSet {
 	 */
 	@Override
 	public boolean addWord(Word word) {
-		if (wordMap.containsKey(word.getWord())) {
+		if (wordMap.containsKey(word.getWord()) &&
+				word.getValue() <= wordMap.get(word.getWord()).getValue()) {
 			return false;
 		}
 		wordMap.put(word.getWord(), word);
