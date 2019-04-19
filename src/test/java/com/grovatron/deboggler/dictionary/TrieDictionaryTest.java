@@ -143,7 +143,16 @@ class TrieDictionaryTest {
 	@Test
 	void testIsValidWord3() {
 		assertThrows(IllegalArgumentException.class, () -> dictionary.isValidWord(null),
-				"isValidPrefix does not take null String, should throw IllegalArgumentException.");
+				"isValidWord does not take null String, should throw IllegalArgumentException.");
+	}
+	
+	/**
+	 * Pass empty String to isValidWord, should throw exception
+	 */
+	@Test
+	void testIsValidWord4() {
+		assertThrows(IllegalArgumentException.class, () -> dictionary.isValidWord(""),
+				"isValidWord does not take empty String, should throw IllegalArgumentException.");
 	}
 
 
