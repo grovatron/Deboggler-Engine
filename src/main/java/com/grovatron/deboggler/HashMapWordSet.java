@@ -33,7 +33,7 @@ public class HashMapWordSet implements WordSet {
 	@Override
 	public boolean addWord(Word word) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	/**
