@@ -28,7 +28,7 @@ public class Deboggler {
 	private final int minLength;
 	
 	/**
-	 * Creates an instance of <code>Debogger</code>.
+	 * Creates an instance of <code>Deboggler</code>.
 	 * @param dictionary Object that implements the <code>Dictionary</code> interface.
 	 * @param wordConstructor Object that constructs <code>Word</code> objects from 
 	 * <code>Letter</code> objects in the 2d matrix.
