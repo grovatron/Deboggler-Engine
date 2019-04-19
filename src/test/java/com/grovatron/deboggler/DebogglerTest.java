@@ -21,6 +21,7 @@ class DebogglerTest {
 	WordConstructor wordConstructor;
 	WordSet wordSet;
 	int minLength;
+	Deboggler deboggler;
 	
 	@BeforeEach
 	void setup() throws IOException {
@@ -29,6 +30,7 @@ class DebogglerTest {
 		wordConstructor = new WordConstructor(new OriginalPointCalculator());
 		wordSet = new HashMapWordSet();
 		minLength = 3;
+		deboggler = new Deboggler(dictionary, wordConstructor, wordSet, minLength);
 	}
 	
 	/**
