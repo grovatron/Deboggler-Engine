@@ -129,5 +129,16 @@ class DebogglerTest {
 				&& wordList.contains(word5) && wordList.contains(word6) && wordList.contains(word7);
 		assertEquals(expected, actual, "List should contain all seven words");
 	}
+	
+	/**
+	 * Pass valid Letter[][], should return empty list.
+	 */
+	@Test
+	void testGetWordList6() {
+		Letter[][] letterGrid = {new Letter[] {new Letter("F"), new Letter("O")}, new Letter[] {new Letter("X"), new Letter("V")}};
+		List<Word> expected = Arrays.asList();
+		List<Word> actual = deboggler.getWordList(letterGrid);
+		assertEquals(expected, actual, "List should be empty");
+	}
 
 }
