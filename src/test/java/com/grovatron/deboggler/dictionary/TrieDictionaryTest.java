@@ -76,5 +76,14 @@ class TrieDictionaryTest {
 		assertThrows(IllegalArgumentException.class, () -> dictionary.isValidPrefix(null),
 				"isValidPrefix does not take null String, should throw IllegalArgumentException.");
 	}
+	
+	/**
+	 * Pass empty String to isValidPrefix, should throw exception
+	 */
+	@Test
+	void testIsValidPrefix4() {
+		assertThrows(IllegalArgumentException.class, () -> dictionary.isValidPrefix(""),
+				"isValidPrefix does not take empty String, should throw IllegalArgumentException.");
+	}
 
 }
