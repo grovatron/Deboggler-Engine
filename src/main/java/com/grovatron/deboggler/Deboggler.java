@@ -43,6 +43,9 @@ public class Deboggler {
 		if (wordSet == null) {
 			throw new IllegalArgumentException("Constructor does not take null WordSet value");
 		}
+		if (minLength < 1) {
+			throw new IllegalArgumentException("Constructor does not take minLength < 1");
+		}
 		this.dictionary = dictionary;
 		this.wordConstructor = wordConstructor;
 		this.wordSet = wordSet;
