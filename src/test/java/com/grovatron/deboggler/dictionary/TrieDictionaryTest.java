@@ -57,5 +57,15 @@ class TrieDictionaryTest {
 		}
 		return prefixes.stream();
 	}
+	
+	/**
+	 * Pass invalid prefix, should return false.
+	 */
+	@Test
+	void testIsValidPrefix2() {
+		boolean expected = false;
+		boolean actual = dictionary.isValidPrefix("SANDWICH");
+		assertEquals(expected, actual, "Should return false");
+	}
 
 }
