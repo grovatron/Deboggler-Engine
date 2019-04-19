@@ -6,6 +6,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -115,13 +116,13 @@ class DebogglerTest {
 	@Test
 	void testGetWordList5() {
 		Letter[][] letterGrid = {new Letter[] {new Letter("S"), new Letter("T")}, new Letter[] {new Letter("A"), new Letter("R")}};
-		Word word1 = new Word("STAR", 1, List.of(0,1,2,3), List.of());
-		Word word2 = new Word("ARTS", 1, List.of(2,3,1,0), List.of());
-		Word word3 = new Word("TARS", 1, List.of(1,2,3,0), List.of());
-		Word word4 = new Word("RATS", 1, List.of(3,2,1,0), List.of());
-		Word word5 = new Word("ART", 1, List.of(2,3,1), List.of());
-		Word word6 = new Word("TAR", 1, List.of(1,2,3), List.of());
-		Word word7 = new Word("RAT", 1, List.of(3,2,1), List.of());
+		Word word1 = new Word("STAR", 1, Arrays.asList(0,1,2,3), Arrays.asList());
+		Word word2 = new Word("ARTS", 1, Arrays.asList(2,3,1,0), Arrays.asList());
+		Word word3 = new Word("TARS", 1, Arrays.asList(1,2,3,0), Arrays.asList());
+		Word word4 = new Word("RATS", 1, Arrays.asList(3,2,1,0), Arrays.asList());
+		Word word5 = new Word("ART", 1, Arrays.asList(2,3,1), Arrays.asList());
+		Word word6 = new Word("TAR", 1, Arrays.asList(1,2,3), Arrays.asList());
+		Word word7 = new Word("RAT", 1, Arrays.asList(3,2,1), Arrays.asList());
 		List<Word> wordList = deboggler.getWordList(letterGrid);
 		boolean expected = true;
 		boolean actual = wordList.contains(word1) && wordList.contains(word2) && wordList.contains(word3) && wordList.contains(word4)
