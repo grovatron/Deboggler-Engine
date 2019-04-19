@@ -2,7 +2,9 @@ package com.grovatron.deboggler.dictionary;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.nio.charset.Charset;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -30,9 +32,13 @@ class TrieDictionaryConstructorTest {
 	 */
 	@Test
 	void testBuildDictionary2() {
-		InputStream inputStream = this.getClass().getResourceAsStream("/empty-file.txt");
+		InputStream inputStream = new ByteArrayInputStream(new String("").getBytes(Charset.forName("UTF-8")));
 		assertThrows(IllegalArgumentException.class, () -> dictionaryConstructor.buildDictionary(inputStream),
 				"InputStream must contain at least one word, should throw IllegalArgumentException");
 	}
+	
+	/**
+	 * 
+	 */
 
 }
