@@ -3,7 +3,6 @@ package com.grovatron.deboggler.dictionary;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -66,6 +65,19 @@ class TrieNodeTest {
 			'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'})
 	void testAddChild5(char letter) {
 		boolean expected = true;
+		boolean actual = node.addChild(letter);
+		assertEquals(expected, actual);
+	}
+	
+	/**
+	 * Add two (identical) uppercase char, second addChild call should return false.
+	 */
+	@ParameterizedTest
+	@ValueSource(chars = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
+			'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'})
+	void testAddChild6(char letter) {
+		node.addChild(letter);
+		boolean expected = false;
 		boolean actual = node.addChild(letter);
 		assertEquals(expected, actual);
 	}
