@@ -31,6 +31,9 @@ class DebogglerTest {
 		minLength = 3;
 	}
 	
+	/**
+	 * Pass null Dictionary to constructor, should throw exception.
+	 */
 	@Test
 	void testConstructor1() {
 		assertThrows(IllegalArgumentException.class, () -> new Deboggler(null, wordConstructor, wordSet, minLength),
