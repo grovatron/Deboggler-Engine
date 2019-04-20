@@ -13,7 +13,6 @@ public class LetterValidator {
 	 * Validates Strings for <code>Letter</code>'s <code>letter</code> argument
 	 * in the constructor
 	 * @param input String to be validated
-	 * @return Boolean value representing whether input was valid
 	 */
 	public static void validateStringInput(String input) {
 		checkIfNull(input);
