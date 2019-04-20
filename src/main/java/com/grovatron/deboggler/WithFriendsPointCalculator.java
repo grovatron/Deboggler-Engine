@@ -17,7 +17,16 @@ public class WithFriendsPointCalculator implements WordPointCalculator {
 			throw new IllegalArgumentException("calculatePoints does not take List<Letter> that contains null elements.");
 		}
 		
-		int letterScore = letters
+		int letterScore = getLetterScore(letters);
+		letterScore = applyWordModifiers(letterScore, letters);
+		int lengthBonus = getLengthBonus(letters);
+		
+		
+		return letterScore + lengthBonus;
+	}
+	
+	private int getLetterScore(List<Letter> letters) {
+		return letters
 				.stream()
 				.map(letter -> {
 					ValueModifier valueModifier;
@@ -28,14 +37,19 @@ public class WithFriendsPointCalculator implements WordPointCalculator {
 					}
 				})
 				.reduce(0, (a, b) -> a + b);
-		
+	}
+	
+	private int applyWordModifiers(int letterScore, List<Letter> letters) {
 		for (Letter letter : letters) {
 			ValueModifier valueModifier;
 			if ((valueModifier = letter.getModifier()) != null && valueModifier.getModifier().equals(Modifier.WORD)) {
-				letterScore *= 2;
+				letterScore *= valueModifier.getMultiplier();
 			}
 		}
-		
+		return letterScore;
+	}
+	
+	private int getLengthBonus(List<Letter> letters) {
 		String word = letters.stream().map(Letter::getLetter).collect(Collectors.joining());
 		int lengthBonus;
 		if (word.length() <= 4) {
@@ -49,7 +63,7 @@ public class WithFriendsPointCalculator implements WordPointCalculator {
 		} else {
 			lengthBonus = 15;
 		}
-		return letterScore + lengthBonus;
+		return lengthBonus;
 	}
 
 }
