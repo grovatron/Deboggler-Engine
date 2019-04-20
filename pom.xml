@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.grovatron</groupId>
   <artifactId>deboggler-engine</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.1.0</version>
   <name>deboggler-engine</name>
   <description>An api for deboggling Boggle grids</description>
   
@@ -35,9 +35,17 @@
   <build>
   	<plugins>
   		<plugin>
-  			<groupId>org.apache.maven.plugin</groupId>
+  			<groupId>org.apache.maven.plugins</groupId>
   			<artifactId>maven-javadoc-plugin</artifactId>
   			<version>3.1.0</version>
+  			<executions>
+  				<execution>
+  					<id>attach-javadocs</id>
+  					<goals>
+  						<goal>jar</goal>
+  					</goals>
+  				</execution>
+  			</executions>
   		</plugin>
   		<plugin>
   			<groupId>org.apache.maven.plugins</groupId>
