@@ -12,6 +12,9 @@ public class WithFriendsPointCalculator implements WordPointCalculator {
 		if (letters.isEmpty()) {
 			throw new IllegalArgumentException("calculatePoints does not take empty List<Letter> argument.");
 		}
+		if (letters.contains(null)) {
+			throw new IllegalArgumentException("calculatePoints does not take List<Letter> that contains null elements.");
+		}
 		// TODO Auto-generated method stub
 		return 0;
 	}
