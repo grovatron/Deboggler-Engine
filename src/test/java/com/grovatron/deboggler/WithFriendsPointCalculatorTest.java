@@ -182,5 +182,23 @@ class WithFriendsPointCalculatorTest {
 		assertEquals(expected, actual, "Should return 90, (2x letter modifier on \"P\", "
 				+ "3x word modifier on \"A\" and \"E\")");
 	}
+	
+	/**
+	 * Pass "CASTLE" with 5x word modifier on "C", and 2x letter modifiers on "A", "S", "T", and "E",
+	 * should return 76.
+	 */
+	@Test
+	void testCalculatePoints15() {
+		List<Letter> letters = Arrays.asList(
+				new Letter("C", 4, new ValueModifier(Modifier.WORD, 5)),
+				new Letter("A", 1, new ValueModifier(Modifier.LETTER, 2)),
+				new Letter("S", 1, new ValueModifier(Modifier.LETTER, 2)),
+				new Letter("T", 1, new ValueModifier(Modifier.LETTER, 2)),
+				new Letter("L", 2),
+				new Letter("E", 1, new ValueModifier(Modifier.LETTER, 2)));
+		int expected = 76;
+		int actual = calculator.calculatePoints(letters);
+		assertEquals(expected, actual, "Should return 76.");
+	}
 
 }
