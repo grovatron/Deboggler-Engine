@@ -37,6 +37,7 @@ public class Deboggler {
 	 * @param wordConstructor Object that constructs <code>Word</code> objects from 
 	 * <code>Letter</code> objects in the 2d matrix.
 	 * @param wordSet Object that implements the <code>WordSet</code> interface.
+	 * @param minLength The minimum length that is required for a prefix to be considered a word.
 	 */
 	public Deboggler(Dictionary dictionary, WordConstructor wordConstructor, WordSet wordSet, int minLength) {
 		DebogglerInputValidator.validateConstructorArguments(dictionary, wordConstructor, wordSet, minLength);

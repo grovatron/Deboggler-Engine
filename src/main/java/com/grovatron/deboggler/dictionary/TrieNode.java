@@ -28,6 +28,8 @@ public class TrieNode {
 	 * the index corresponding to <code>letter</code>
 	 * @param letter <code>char</code> value that corresponds to an index
 	 * in <code>children</code>
+	 * @return Boolean value indicating whether a new <code>TrieNode</code>
+	 * was successfully added at the index corresponding to <code>letter</code>
 	 */
 	public boolean addChild(char letter) {
 		if (Character.isLowerCase(letter)) {
