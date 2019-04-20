@@ -126,5 +126,17 @@ class WithFriendsPointCalculatorTest {
 		int actual = calculator.calculatePoints(letters);
 		assertEquals(expected, actual, "Should return 29 (14 Letter points plus 15 for length of 8");
 	}
+	
+	/**
+	 * Pass "APE" with 2x letter modifier on "P" to calculatePoints, should return 10.
+	 */
+	@Test
+	void testCalculatePoints11() {
+		List<Letter> letters = Arrays.asList(new Letter("A", 1), new Letter("P", 4, new ValueModifier(Modifier.LETTER, 2)),
+				new Letter("E", 1));
+		int expected = 10;
+		int actual = calculator.calculatePoints(letters);
+		assertEquals(expected, actual, "Should return 10, (2x letter score for \"P\")");
+	}
 
 }
