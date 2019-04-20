@@ -15,12 +15,42 @@ public class LetterValidator {
 	 * @param input String to be validated
 	 * @return Boolean value representing whether input was valid
 	 */
-	public static boolean validateStringInput(String input) {
-		return input != null &&
-				!input.isBlank() &&
-				!containsNonAlphabeticChar(input) &&
-				(input.length() == 1 || input.equalsIgnoreCase("QU")) &&
-				(!input.toLowerCase().equals(input));
+	public static void validateStringInput(String input) {
+		checkIfNull(input);
+		checkIfBlank(input);
+		checkIfContainsNonAlphabeticChar(input);
+		checkIfLengthIllegal(input);
+		checkIfNotUpperCase(input);
+	}
+	
+	private static void checkIfNull(String input) {
+		if (input == null) {
+			throw new IllegalArgumentException("Letter does not take null String argument.");
+		}
+	}
+	
+	private static void checkIfBlank(String input) {
+		if (input.isBlank()) {
+			throw new IllegalArgumentException("Letter does not take blank String arugment.");
+		}
+	}
+	
+	private static void checkIfContainsNonAlphabeticChar(String input) {
+		if (containsNonAlphabeticChar(input)) {
+			throw new IllegalArgumentException("Letter does not take String that contains non-alphabetic chararcters");
+		}
+	}
+	
+	private static void checkIfLengthIllegal(String input) {
+		if (input.length() > 1 && !input.equals("QU")) {
+			throw new IllegalArgumentException("Letter does not take Strings with lengths longer than one (except for \"QU\"");
+		}
+	}
+	
+	private static void checkIfNotUpperCase(String input) {
+		if (input.equals(input.toLowerCase())) {
+			throw new IllegalArgumentException("Letter does not take lower case Strings.");
+		}
 	}
 	
 	private static boolean containsNonAlphabeticChar(String input) {

@@ -24,9 +24,7 @@ public class Letter {
 	 * @param modifier A <code>Modifier</code> object associated with the <code>Letter</code>
 	 */
 	public Letter(String letter, int value, ValueModifier modifier) {
-		if (!LetterValidator.validateStringInput(letter)) {
-			throw new IllegalArgumentException();
-		}
+		LetterValidator.validateStringInput(letter);
 		this.letter = letter;
 		this.value = value;
 		this.modifier = modifier;
