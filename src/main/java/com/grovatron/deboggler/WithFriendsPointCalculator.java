@@ -23,8 +23,10 @@ public class WithFriendsPointCalculator implements WordPointCalculator {
 			lengthBonus = 0;
 		} else if (word.length() == 5) {
 			lengthBonus = 3;
-		} else {
+		} else if (word.length() == 6 ){
 			lengthBonus = 6;
+		} else {
+			lengthBonus = 10;
 		}
 		return letters.stream().map(Letter::getValue).reduce(0, (a, b) -> a + b) + lengthBonus;
 	}
