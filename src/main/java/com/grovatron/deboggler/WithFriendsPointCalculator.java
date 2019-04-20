@@ -18,7 +18,15 @@ public class WithFriendsPointCalculator implements WordPointCalculator {
 		}
 		// TODO Auto-generated method stub
 		String word = letters.stream().map(Letter::getLetter).collect(Collectors.joining());
-		return letters.stream().map(Letter::getValue).reduce(0, (a, b) -> a + b) + (word.length() <= 4 ? 0 : 3);
+		int lengthBonus;
+		if (word.length() <= 4) {
+			lengthBonus = 0;
+		} else if (word.length() == 5) {
+			lengthBonus = 3;
+		} else {
+			lengthBonus = 6;
+		}
+		return letters.stream().map(Letter::getValue).reduce(0, (a, b) -> a + b) + lengthBonus;
 	}
 
 }
