@@ -45,5 +45,16 @@ class WithFriendsPointCalculatorTest {
 				"calculatePoints does not take List<Letter> that contains null values, "
 				+ "should throw IllegalArgumentException.");
 	}
+	
+	/**
+	 * Pass "APE" with no modifiers to calculatePoints, should return 6.
+	 */
+	@Test
+	void testCalculator4() {
+		List<Letter> letters = Arrays.asList(new Letter("A", 1), new Letter("P", 4), new Letter("E", 1));
+		int expected = 6;
+		int actual = calculator.calculatePoints(letters);
+		assertEquals(expected, actual, "Should return 6");
+	}
 
 }
