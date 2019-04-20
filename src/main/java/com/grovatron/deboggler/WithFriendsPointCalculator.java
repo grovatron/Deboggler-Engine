@@ -29,6 +29,13 @@ public class WithFriendsPointCalculator implements WordPointCalculator {
 				})
 				.reduce(0, (a, b) -> a + b);
 		
+		for (Letter letter : letters) {
+			ValueModifier valueModifier;
+			if ((valueModifier = letter.getModifier()) != null && valueModifier.getModifier().equals(Modifier.WORD)) {
+				letterScore *= 2;
+			}
+		}
+		
 		String word = letters.stream().map(Letter::getLetter).collect(Collectors.joining());
 		int lengthBonus;
 		if (word.length() <= 4) {
