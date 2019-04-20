@@ -1,6 +1,7 @@
 package com.grovatron.deboggler;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class WithFriendsPointCalculator implements WordPointCalculator {
 
@@ -16,7 +17,8 @@ public class WithFriendsPointCalculator implements WordPointCalculator {
 			throw new IllegalArgumentException("calculatePoints does not take List<Letter> that contains null elements.");
 		}
 		// TODO Auto-generated method stub
-		return letters.stream().map(Letter::getValue).reduce(0, (a, b) -> a + b);
+		String word = letters.stream().map(Letter::getLetter).collect(Collectors.joining());
+		return letters.stream().map(Letter::getValue).reduce(0, (a, b) -> a + b) + (word.length() <= 4 ? 0 : 3);
 	}
 
 }
