@@ -67,5 +67,16 @@ class WithFriendsPointCalculatorTest {
 		int actual = calculator.calculatePoints(letters);
 		assertEquals(expected, actual, "Should return 3");
 	}
+	
+	/**
+	 * Pass "VOLE" with no modifiers to calculatePoints, should return 9
+	 */
+	@Test
+	void testCalculatePoints6() {
+		List<Letter> letters = Arrays.asList(new Letter("V", 5), new Letter("O", 1), new Letter("L", 2), new Letter("E", 1));
+		int expected = 9;
+		int actual = calculator.calculatePoints(letters);
+		assertEquals(expected, actual, "Should return 9");
+	}
 
 }
