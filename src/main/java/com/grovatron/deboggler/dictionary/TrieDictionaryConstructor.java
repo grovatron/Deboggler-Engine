@@ -39,6 +39,8 @@ public class TrieDictionaryConstructor implements DictionaryConstructor {
 			throw new IllegalArgumentException("InputStream must contain at least one word.");
 		}
 		
+		reader.close();
+		
 		return new TrieDictionary(root);
 	}
 	
