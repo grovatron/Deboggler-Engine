@@ -102,5 +102,17 @@ class WithFriendsPointCalculatorTest {
 		int actual = calculator.calculatePoints(letters);
 		assertEquals(expected, actual, "Should return 15 (9 Letter points plus 6 for length of 6");
 	}
+	
+	/**
+	 * Pass "WINTERS" with no modifiers to calculatePoints, should return 11 + 10 (length bonus) = 21
+	 */
+	@Test
+	void testCalculatePoints9() {
+		List<Letter> letters = Arrays.asList(new Letter("W", 4), new Letter("I", 1), new Letter("N", 2),
+				new Letter("T", 1), new Letter("E", 1), new Letter("R", 1), new Letter("S", 1));
+		int expected = 21;
+		int actual = calculator.calculatePoints(letters);
+		assertEquals(expected, actual, "Should return 21 (11 Letter points plus 10 for length of 7");
+	}
 
 }
