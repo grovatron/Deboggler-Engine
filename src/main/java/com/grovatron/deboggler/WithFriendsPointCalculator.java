@@ -16,7 +16,7 @@ public class WithFriendsPointCalculator implements WordPointCalculator {
 			throw new IllegalArgumentException("calculatePoints does not take List<Letter> that contains null elements.");
 		}
 		// TODO Auto-generated method stub
-		return 6;
+		return letters.stream().map(Letter::getValue).reduce(0, (a, b) -> a + b);
 	}
 
 }
