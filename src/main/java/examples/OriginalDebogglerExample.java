@@ -24,24 +24,52 @@ public class OriginalDebogglerExample {
 
 	public static void main(String[] args) throws IOException {
 
+		/**
+		 * Build a TrieDictionary that contains all the words in SOWPODS dictionary.
+		 * For more information on SOWPODS:
+		 * https://en.wikipedia.org/wiki/Collins_Scrabble_Words
+		 */
 		DictionaryConstructor dictionaryConstructor = new TrieDictionaryConstructor();
 		InputStream inputStream = OriginalDebogglerExample.class.getResourceAsStream("/sowpods.txt");
 		Dictionary dictionary = dictionaryConstructor.buildDictionary(inputStream);
 		
+		/**
+		 * Build a WordConstructor that uses the OriginalPointCalculator.
+		 * The OriginalPointCalculator uses the original Boggle rules to generate 
+		 * point values for words.
+		 */
 		WordConstructor wordConstructor = new WordConstructor(new OriginalPointCalculator());
 		
+		/**
+		 * Build a HashMapWordSet to store the words found in the Boggle grid.
+		 */
 		WordSet wordSet = new HashMapWordSet();
 		
+		/**
+		 * Set the minimum length.
+		 * The original Boggle rules specifies that the minimum word length is 3.
+		 */
 		int minLength = 3;
 		
+		/**
+		 * Build a Deboggler using the components built above.
+		 */
 		Deboggler deboggler = new Deboggler(dictionary, wordConstructor, wordSet, minLength);
 		
-		
+		/**
+		 * Build a Letter[][] grid from user input.
+		 */
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		Letter[][] letterGrid = getLetterGrid(reader);
 		
+		/**
+		 * Get the list of Words found in the Letter[][] grid.
+		 */
 		List<Word> wordList = deboggler.getWordList(letterGrid);
 		
+		/**
+		 * Display the list of words and their locations within the Letter[][] grid.
+		 */
 		displayWords(wordList, letterGrid, reader);
 		reader.close();
 	}
