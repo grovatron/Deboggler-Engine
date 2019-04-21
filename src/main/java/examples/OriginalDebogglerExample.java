@@ -1,19 +1,16 @@
+package examples;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import com.grovatron.deboggler.Deboggler;
 import com.grovatron.deboggler.HashMapWordSet;
 import com.grovatron.deboggler.Letter;
-import com.grovatron.deboggler.Modifier;
-import com.grovatron.deboggler.ValueModifier;
-import com.grovatron.deboggler.WithFriendsPointCalculator;
+import com.grovatron.deboggler.OriginalPointCalculator;
 import com.grovatron.deboggler.Word;
 import com.grovatron.deboggler.WordConstructor;
 import com.grovatron.deboggler.WordSet;
@@ -21,23 +18,24 @@ import com.grovatron.deboggler.dictionary.Dictionary;
 import com.grovatron.deboggler.dictionary.DictionaryConstructor;
 import com.grovatron.deboggler.dictionary.TrieDictionaryConstructor;
 
-public class WithFriendsDebogglerExample {
-
-	private static final int WORDS_AT_A_TIME = 5;
+public class OriginalDebogglerExample {
+	
+	static final int WORDS_AT_A_TIME = 5;
 
 	public static void main(String[] args) throws IOException {
-		
+
 		DictionaryConstructor dictionaryConstructor = new TrieDictionaryConstructor();
-		InputStream inputStream = WithFriendsDebogglerExample.class.getResourceAsStream("/sowpods.txt");
+		InputStream inputStream = OriginalDebogglerExample.class.getResourceAsStream("/sowpods.txt");
 		Dictionary dictionary = dictionaryConstructor.buildDictionary(inputStream);
 		
-		WordConstructor wordConstructor = new WordConstructor(new WithFriendsPointCalculator());
+		WordConstructor wordConstructor = new WordConstructor(new OriginalPointCalculator());
 		
 		WordSet wordSet = new HashMapWordSet();
 		
-		int minLength = 2;
+		int minLength = 3;
 		
 		Deboggler deboggler = new Deboggler(dictionary, wordConstructor, wordSet, minLength);
+		
 		
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		Letter[][] letterGrid = getLetterGrid(reader);
@@ -45,14 +43,13 @@ public class WithFriendsDebogglerExample {
 		List<Word> wordList = deboggler.getWordList(letterGrid);
 		
 		displayWords(wordList, letterGrid, reader);
-		
 		reader.close();
 	}
 	
 	private static void displayWords(List<Word> wordList, Letter[][] letterGrid, BufferedReader reader) throws IOException {
 		Collections.sort(wordList, new Comparator<Word>() {
 			public int compare(Word w1, Word w2) {
-				int result = Integer.compare(w2.getValue(), w1.getValue());
+				int result = Integer.compare(w1.getWord().length(), w2.getWord().length());
 				if (result == 0) {
 					result = w1.getWord().compareTo(w2.getWord());
 				}
@@ -76,22 +73,20 @@ public class WithFriendsDebogglerExample {
 		}
 		
 	}
-
-	private static void displayWord(Word word, Letter[][] letterGrid) {
-		String[][] output = buildOutputGrid(letterGrid);
+	
+	public static void displayWord(Word word, Letter[][] grid) {
+		String[][] output = buildOutputGrid(grid);
 		for (int location : word.getLocation()) {
-			int row = location / letterGrid.length;
-			int col = location % letterGrid.length;
+			int row = location / grid.length;
+			int col = location % grid.length;
 			output[row][col] = output[row][col].toUpperCase();
 		}
-		
 		System.out.println(String.format("\n\n%s", word.getWord()));
-		System.out.println(String.format("Points: %d", word.getValue()));
 		for (String[] row : output) {
 			System.out.println(String.join("|", row));
 		}
 	}
-
+	
 	public static String[][] buildOutputGrid(Letter[][] grid) {
 		String[][] outputGrid = new String[grid.length][grid.length];
 		for (int i = 0; i < grid.length; i++) {
@@ -107,19 +102,11 @@ public class WithFriendsDebogglerExample {
 		Letter[][] letterGrid = new Letter[size][size];
 		
 		System.out.println("Enter one row at a time with a space between each letter.");
-		System.out.println("If a letter has a modifier (for instance, triple letter) enter it like so: 'n,tl'");
 		for (int i = 0; i < size; i++) {
 			System.out.printf("Row %d: ", (i + 1));
-			String[] row = reader.readLine().toLowerCase().split(" ");
+			String[] row = reader.readLine().split(" ");
 			for (int j = 0; j < size; j++) {
-				String[] tokens = row[j].split(",");
-				Letter letter;
-				if (tokens.length == 1) {
-					letter = new Letter(tokens[0].toUpperCase(), letterValues.get(tokens[0]));
-				} else {
-					letter = new Letter(tokens[0].toUpperCase(), letterValues.get(tokens[0]), modifiers.get(tokens[1]));
-				}
-				letterGrid[i][j] = letter;
+				letterGrid[i][j] = new Letter(row[j].toUpperCase());
 			}
 		}
 		
@@ -145,44 +132,5 @@ public class WithFriendsDebogglerExample {
 		}
 		return size;
 	}
-	
-	static Map<String, Integer> letterValues;
-	static Map<String, ValueModifier> modifiers;
-	
-	static {
-		letterValues = new HashMap<String, Integer>();
-		modifiers = new HashMap<String, ValueModifier>();
-		
-		letterValues.put("e", 1);
-		letterValues.put("s", 1);
-		letterValues.put("t", 1);
-		letterValues.put("r", 1);
-		letterValues.put("a", 1);
-		letterValues.put("i", 1);
-		letterValues.put("o", 1);
-		letterValues.put("l", 2);
-		letterValues.put("d", 2);
-		letterValues.put("n", 2);
-		letterValues.put("u", 2);
-		letterValues.put("g", 3);
-		letterValues.put("y", 3);
-		letterValues.put("h", 3);
-		letterValues.put("p", 4);
-		letterValues.put("m", 4);
-		letterValues.put("c", 4);
-		letterValues.put("b", 4);
-		letterValues.put("f", 4);
-		letterValues.put("w", 4);
-		letterValues.put("k", 5);
-		letterValues.put("v", 5);
-		letterValues.put("x", 8);
-		letterValues.put("j", 10);
-		letterValues.put("qu", 10);
-		letterValues.put("z", 10);
-		
-		modifiers.put("dw", new ValueModifier(Modifier.WORD, 2));
-		modifiers.put("tw", new ValueModifier(Modifier.WORD, 3));
-		modifiers.put("dl", new ValueModifier(Modifier.LETTER, 2));
-		modifiers.put("tl", new ValueModifier(Modifier.LETTER, 3));
-	}
+
 }
