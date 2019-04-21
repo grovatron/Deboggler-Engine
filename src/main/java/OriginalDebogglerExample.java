@@ -1,5 +1,7 @@
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.List;
 
 import com.grovatron.deboggler.Deboggler;
@@ -33,7 +35,39 @@ public class OriginalDebogglerExample {
 		
 		List<Word> wordList = deboggler.getWordList(letterGrid);
 		
-		displayWords(wordList);
+		displayWords(wordList, letterGrid);
+	}
+	
+	private static void displayWords(List<Word> wordList, Letter[][] letterGrid) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static Letter[][] getLetterGrid() throws IOException {
+		int size = getSize();
+		Letter[][] letterGrid = new Letter[size][size];
+		return letterGrid;
+	}
+	
+	public static int getSize() throws IOException {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		
+		boolean gotSize = false;
+		int size = 0;
+		while (!gotSize) {
+			try {
+				System.out.print("Grid Size: ");
+				size = Integer.parseInt(reader.readLine().trim());
+				if (size < 2) {
+					throw new Exception();
+				}
+				gotSize = true;
+			} catch (Exception ex) {
+				System.out.println("Please enter an integer greater than or equal to 2\n");
+			}
+		}
+		reader.close();
+		return size;
 	}
 
 }
