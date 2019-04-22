@@ -18,39 +18,71 @@ public class WordValidator {
 	/**
 	 * Validates the String <code>word</code> argument for the <code>Word</code> constructor.
 	 * @param input the <code>word</code> to be validated.
-	 * @return Boolean value representing whether the input was valid.
 	 */
-	public static boolean validateWordStringInput(String input) {
-		return input != null && !input.isBlank();
+	public static void validateWordStringInput(String input) {
+		checkIfStringNull(input);
+		checkIfStringBlank(input);
+	}
+	
+	private static void checkIfStringNull(String input) {
+		if (input == null) {
+			throw new IllegalArgumentException("Word constructor does not take null String arguments");
+		}
+	}
+	
+	private static void checkIfStringBlank(String input) {
+		if (input.isBlank()) {
+			throw new IllegalArgumentException("Word constructor does not take blank String arguments");
+		}
 	}
 
 	/**
 	 * Validates the list of ints, <code>location</code> for the <code>Word</code> constructor.
 	 * @param listInput the <code>location</code> list to be validated.
 	 * @param stringInput the <code>word</code> argument for <code>Word</code>'s constructor.
-	 * @return Boolean value representing whether the input was vaild.
 	 */
-	public static boolean validateLocationListInput(List<Integer> listInput, String stringInput) {
-		return listInput != null &&
-				!listInput.isEmpty() &&
-				validLength(listInput, stringInput) &&
-				!containsNull(listInput) &&
-				!containsRepeats(listInput);
+	public static void validateLocationListInput(List<Integer> listInput, String stringInput) {
+		checkIfLocationsNull(listInput);
+		checkIfLocationsEmpty(listInput);
+		checkIfValidLength(listInput, stringInput);
+		checkIfContainsNull(listInput);
+		checkIfContainsRepeats(listInput);
+	}
+	
+	private static void checkIfLocationsNull(List<Integer> locations) {
+		if (locations == null) {
+			throw new IllegalArgumentException("Word constructor does not take null List<Integer> arguments");
+		}
+	}
+	
+	private static void checkIfLocationsEmpty(List<Integer> locations) {
+		if (locations.isEmpty()) {
+			throw new IllegalArgumentException("Word constructor does not take null List<Integer> arguments");
+		}
+	}
+	
+	private static void checkIfValidLength(List<Integer> locations, String word) {
+		if (!validLength(locations, word)) {
+			throw new IllegalArgumentException("Argument locations has invalid length.");
+		}
+	}
+	
+	private static void checkIfContainsRepeats(List<Integer> locations) {
+		if (containsRepeats(locations)) {
+			throw new IllegalArgumentException("Argument locations has non-unique values");
+		}
+	}
+	
+	private static void checkIfContainsNull(List<Integer> locations) {
+		if (locations.contains(null)) {
+			throw new IllegalArgumentException("Word constructor does not take List<Integer> argument that contains null values.");
+		}
 	}
 	
 	private static boolean containsRepeats(List<Integer> listInput) {
 		Set<Integer> intSet = new HashSet<>();
 		for (int number : listInput) {
 			if (!intSet.add(number)) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	private static boolean containsNull(List<Integer> listInput) {
-		for (Integer number : listInput) {
-			if (number == null) {
 				return true;
 			}
 		}
@@ -71,10 +103,21 @@ public class WordValidator {
 	 * Validates the list of <code>ValueModifier</code> objects, <code>modifiers</code> for the
 	 * <code>Word</code> constructor.
 	 * @param modifiers List of <code>ValueModifier</code> objects.
-	 * @return Boolean value representing whether the input is valid.
 	 */
-	public static boolean validateModifierListInput(List<ValueModifier> modifiers) {
-		return modifiers != null &&
-				!modifiers.contains(null);
+	public static void validateModifierListInput(List<ValueModifier> modifiers) {
+		checkIfModifiersNull(modifiers);
+		checkIfModifiersContainsNull(modifiers);
+	}
+	
+	private static void checkIfModifiersNull(List<ValueModifier> modifiers) {
+		if (modifiers == null) {
+			throw new IllegalArgumentException("Word constructor does not take null List<ValueModifier> argument");
+		}
+	}
+	
+	private static void checkIfModifiersContainsNull(List<ValueModifier> modifiers) {
+		if (modifiers.contains(null)) {
+			throw new IllegalArgumentException("Word constructor does not take List<ValueModifier> argument that contains null values.");
+		}
 	}
 }
