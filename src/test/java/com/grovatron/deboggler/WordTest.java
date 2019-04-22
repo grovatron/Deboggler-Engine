@@ -109,7 +109,7 @@ class WordTest {
 	void testConstructor7() {
 		String word = "APE";
 		int value = 0;
-		List<Integer> location = List.of(1, 1, 2);
+		List<Integer> location = Arrays.asList(1, 1, 2);
 		List<ValueModifier> modifiers = List.of();
 		assertThrows(IllegalArgumentException.class, () -> new Word(word, value, location, modifiers),
 				"Word does not take location list with repeat locations, should throw IllegalArgumentException");
@@ -126,7 +126,7 @@ class WordTest {
 		location.add(1);
 		location.add(2);
 		location.add(null);
-		List<ValueModifier> modifiers = List.of();
+		List<ValueModifier> modifiers = Arrays.asList();
 		assertThrows(IllegalArgumentException.class, () -> new Word(word, value, location, modifiers),
 				"Word does not take location list that contains a null value, should throw IllegalArgumentException");
 	}
@@ -138,7 +138,7 @@ class WordTest {
 	void testConstructor9() {
 		String word = "APE";
 		int value = 0;
-		List<Integer> location = List.of(1, 2, 3);
+		List<Integer> location = Arrays.asList(1, 2, 3);
 		List<ValueModifier> modifiers = null;
 		assertThrows(IllegalArgumentException.class, () -> new Word(word, value, location, modifiers),
 				"Word does not take null modifier list, should throw IllegalArgumentException");
@@ -151,7 +151,7 @@ class WordTest {
 	void testConstructor10() {
 		String word = "APE";
 		int value = 0;
-		List<Integer> location = List.of(1, 2, 3);
+		List<Integer> location = Arrays.asList(1, 2, 3);
 		List<ValueModifier> modifiers = new ArrayList<>();
 		modifiers.add(new ValueModifier(Modifier.LETTER, 2));
 		modifiers.add(null);
