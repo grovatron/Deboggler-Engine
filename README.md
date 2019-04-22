@@ -56,8 +56,7 @@ int minLength = 2;
 Deboggler deboggler = new Deboggler(dictionary, wordConstructor, wordSet, minLength);
 ```
 ### Using the Deboggler
-With a fully constructed ```Deboggler`` object, generating a ```Word``` list is as simple as passing the ```Letter``` grid to the method,
-```getWordList```:
+With a fully constructed ```Deboggler``` object, generating a ```Word``` list is as simple as passing the ```Letter``` grid to the method, ```getWordList```:
 ```java
 // letterGrid is a Letter[][] object
 List<Word> wordList = deboggler.getWordList(letterGrid);
