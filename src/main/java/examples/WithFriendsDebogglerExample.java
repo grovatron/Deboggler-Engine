@@ -53,7 +53,7 @@ public class WithFriendsDebogglerExample {
 		 * Set the minimum length.
 		 * The minimum length for a word in Boggle With Friends is 2.
 		 */
-		int minLength = 2;
+		int minLength = 3;
 		
 		/**
 		 * Build a Deboggler using the components built above.
@@ -89,8 +89,13 @@ public class WithFriendsDebogglerExample {
 				return result;
 			}
 		});
+		int points = 0;
+		for (Word word : wordList) {
+			points += word.getValue();
+		}
 		
 		System.out.printf("\nFound %d words\n", wordList.size());
+		System.out.printf("\nTotal Points: %d", points);
 		System.out.println("Press enter to start displaying words...");
 		reader.readLine();
 		
