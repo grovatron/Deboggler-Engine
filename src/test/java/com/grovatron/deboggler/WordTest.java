@@ -159,5 +159,17 @@ class WordTest {
 				"Word does not take null modifier list, should throw IllegalArgumentException");
 	}
 	
+	/**
+	 * Construct Word, "TOQUE"
+	 */
+	@Test
+	void testConstructor11() {
+		String word = "TOQUE";
+		int value = 16;
+		List<Integer> location = Arrays.asList(2, 1, 0, 3);
+		List<ValueModifier> modifiers = Arrays.asList();
+		Word wordObj = new Word(word, value, location, modifiers);
+	}
+	
 
 }

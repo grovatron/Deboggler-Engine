@@ -94,7 +94,7 @@ public class WordValidator {
 		int index = 0;
 		while (stringInput.indexOf("QU", index) >= 0) {
 			quCount++;
-			index = stringInput.lastIndexOf(stringInput, index) + 1;
+			index = stringInput.indexOf("QU", index) + 1;
 		}
 		return listInput.size() == stringInput.length() - quCount;
 	}
