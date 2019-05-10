@@ -17,7 +17,7 @@ import com.grovatron.deboggler.dictionary.TrieDictionaryConstructor;
 
 class DebogglerTest {
 	
-	static String testFile = "star\narts\nrats\ntars\nart\ntar\nrat";
+	static String testFile = "star\narts\nrats\ntars\nart\ntar\nrat\nquit\nquits\nquote";
 
 	Dictionary dictionary;
 	WordConstructor wordConstructor;
@@ -139,6 +139,40 @@ class DebogglerTest {
 		List<Word> expected = Arrays.asList();
 		List<Word> actual = deboggler.getWordList(letterGrid);
 		assertEquals(expected, actual, "List should be empty");
+	}
+	
+	/**
+	 * Pass the letters "Qu", "I", "T", "S", should return word list that contains "QUIT"
+	 */
+	@Test
+	void testGetWordList7() {
+		Letter[][] letterGrid = {new Letter[] {new Letter("QU"), new Letter("I")}, new Letter[] {new Letter("T"), new Letter("S")}};
+		List<Word> wordList = deboggler.getWordList(letterGrid);
+		boolean expected = true;
+		boolean actual = false;
+		for (Word word : wordList) {
+			if (word.getWord().equals("QUIT")) {
+				actual = true;
+			}
+		}
+		assertEquals(expected, actual);
+	}
+	
+	/**
+	 * Pass the letters "QU", "O", "T", "E", should return word list that contains "QUOTE"
+	 */
+	@Test
+	void testGetWordList8() {
+		Letter[][] letterGrid = {new Letter[] {new Letter("QU"), new Letter("O")}, new Letter[] {new Letter("T"), new Letter("E")}};
+		List<Word> wordList = deboggler.getWordList(letterGrid);
+		boolean expected = true;
+		boolean actual = false;
+		for (Word word : wordList) {
+			if (word.getWord().equals("QUOTE")) {
+				actual = true;
+			}
+		}
+		assertEquals(expected, actual);
 	}
 
 }
